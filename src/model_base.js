@@ -4,8 +4,6 @@ import { fileURLToPath } from 'url'
 
 
 export class ModelBase {
-    // isolar
-
     static loadTable() {
       const __dirname = dirname(fileURLToPath(import.meta.url));
       const file = join(__dirname, `../data/${this.tableName}/data.json`)
@@ -18,18 +16,25 @@ export class ModelBase {
       return dbTable
     }
 
-    // tentar retornar uma instancia
     static list() {
-      return this.loadTable().data
+      // gerando um array de objetos da instancia do model
+      let list = []
+      this.loadTable().data.forEach((register) => {
+        list.push(new this(register))
+      })
+
+      return list
     }
-  
-    // tentar retornar uma instancia
+
     static find(id) {
       const registers = this.loadTable().data
-      return registers.find(element => element.id === id)
+      const register = registers.find(element => element.id === id)
+
+      if (register === undefined) return
+
+      return new this(register)
     }
-  
-    // tentar retornar uma instancia
+
     static create(params) {
       const table = this.loadTable()
 
@@ -45,6 +50,7 @@ export class ModelBase {
         "id": id
       }
 
+      // constroi os parametros usando os campos do model e os parametros passados
       this.fields.forEach((field) => {
         if (params[field] !== null) { 
           values[field] = params[field]
@@ -53,33 +59,40 @@ export class ModelBase {
         }
       })
 
+      // salvando no banco de dados
       table.data.push(values)
       table.write()
+
+      return this.find(id)
     }
 
     static delete(id) {
       const table = this.loadTable()
       const index = table.data.findIndex(element => element.id === id)
-      
-      if (index != -1) {
-        table.data.splice(index, 1)
-        table.write()
-      }
+
+      if (index == -1) return
+
+      // deletando o registro do banco de dados
+      table.data.splice(index, 1)
+      table.write()
     }
-  
-    // tentar retornar uma instancia e mudar para meotodo de instancia
+
     static update(id, params) {
       const table = this.loadTable()
       const index = table.data.findIndex(element => element.id === id)
 
-      if (index == -1) return
+      if (index === -1) return
 
-      Object.keys(params).forEach((field) => {
-        if (this.fields.includes(field)) { 
+      // atualizando os campos no banco usando os campos do model e os parametros passados
+      this.fields.forEach((field) => {
+        if (params[field] !== null) { 
           table.data[index][field] = params[field]
+        } else {
+          table.data[index][field] = null
         }
       })
-
       table.write()
+
+      return this.find(id)
     }
 }

@@ -12,13 +12,14 @@ export class Customer extends ModelBase {
     'adress',
   ]
 
-  constructor(id, username, email, password, cpf, phoneNumber, adress) {
-    this.id = id
-    this.username = username
-    this.email = email
-    this.password = password
-    this.cpf = cpf
-    this.phoneNumber = phoneNumber
-    this.adress = adress
+  constructor(params) {
+    super()
+    this.id = params.id
+    this.username = params.username
+    this.email = params.email
+    this.password = params.password
+    this.cpf = params.cpf
+    this.phoneNumber = params.phoneNumber
+    this.adress = params.adress
   }
 }

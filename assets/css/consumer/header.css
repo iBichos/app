@@ -1,0 +1,113 @@
+/* HEADER */
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 2px solid #3f3f3f;
+  background-color: #deeaec;
+  color: #808080;
+}
+
+#navbar-logo {
+  font-size: 1.5em;
+  color: #fffdf9;
+  background-color: #3f3f3f;
+  padding: 9px;
+  border: solid;
+  border-color: #3f3f3f;
+  border-radius: 10px;
+}
+
+#navbar-logo:hover {
+  background-color: #deeaec;
+  color: #3f3f3f;
+}
+
+#navbar-search[type=text] {
+  float: right;
+  padding: 14px;
+  border: solid;
+  border-color: #deeaec;
+  border-radius: 10px;
+  font-size: 17px;
+  width: 30%;
+  background: url(../../../public/assets/icons/search.png) no-repeat;
+  background-position: right 3% center;
+  background-size: 20px;
+  background-color: #fffdf9;
+}
+
+#navbar-search:focus {
+  outline: none;
+}
+
+#navbar-list  {
+  width: 30%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.navbar-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  padding: 16px 0;
+}
+
+
+.navbar-item.active {
+  border-bottom: 2px solid #3f3f3f;
+  color: #3f3f3f;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease 0s;
+}
+
+.navbar-link:hover {
+  color: #3f3f3f;
+}
+
+
+#navbar-cart {
+  display: flex;
+  padding: 8px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: solid;
+  border-radius: 10px;
+  border-color: #3f3f3f;
+}
+
+#navbar-cart-counter {
+  margin-left: 2px;
+}
+
+
+#navbar-consumer-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-button {
+  padding: 1rem;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: solid;
+  border-radius: 10px;
+  border-color: #97b8a5;
+  background-color: #97b8a5;
+  color: #fffdf9;
+}
+
+#navbar-merchant-profile img {
+  padding: .7em;
+  background-color: #deeaec;
+  border: solid;
+  border-radius: 10px;
+  border-color: #3f3f3f;
+}

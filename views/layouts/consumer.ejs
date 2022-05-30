@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/consumer.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+
+    <title>iBichos</title>
+  </head>
+
+  <body>
+    <header id="navbar">
+      <h1 id="navbar-logo"><a class="navbar-link" href="../home/index.html">iBichos</a></h1>
+      <input id="navbar-search" type="text">
+      <nav>
+        <ul>
+          <li class="navbar-item active"><a class="navbar-link" href="../home/index.html">Início</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="../catalogue/index.html">Produtos</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="../purchases/index.html">Minhas compras</a></li>
+        </ul>
+      </nav> 
+
+      <a href="../shopping_cart/show.html">
+        <div id="navbar-consumer-area">
+          <div id="navbar-cart" class="">
+            <img  src="../../../public/assets/icons/shopping-cart.png" width="32" height="32" alt="shopping-cart">
+            <span id="navbar-cart-counter" class="hidden">3</span>
+          </div>
+          <a href="../sign_in/index.html" class="navbar-button">Login</a>
+          <!-- <button class="navbar-button">SIGN-UP</button> -->
+        </div>       
+      </a>
+    </header>
+
+    <%- content %>
+  </body>
+</html>

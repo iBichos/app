@@ -13,20 +13,23 @@
       <input id="navbar-search" type="text">
       <nav>
         <ul>
-          <li class="navbar-item active"><a class="navbar-link" href="/">Início</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="/products">Produtos</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="../purchases/index.html">Minhas compras</a></li>
+          <li class="navbar-item <% if(url == '/') { %>active<% } %>"><a class="navbar-link" href="/">Início</a></li>
+          <li class="navbar-item <% if(url == '/products') { %>active<% } %>"><a class="navbar-link" href="/products">Produtos</a></li>
         </ul>
       </nav> 
 
-      <a href="../shopping_cart/show.html">
+      <a href="/shopping_cart">
         <div id="navbar-consumer-area">
           <div id="navbar-cart" class="">
             <img src="/icons/shopping-cart.png" width="32" height="32" alt="shopping-cart">
-            <span id="navbar-cart-counter" class="hidden">3</span>
+            <span id="navbar-cart-counter" class="hidden"><%= shopping_cart.products.length %></span>
           </div>
-          <a href="../sign_in/index.html" class="navbar-button">Login</a>
-          <!-- <button class="navbar-button">SIGN-UP</button> -->
+          <% if (session) { %>
+            <a href="../sign_in/index.html" class="navbar-button">Meu perfil</a>
+          <% } else { %>
+            <a href="../sign_in/index.html" class="navbar-button">Login</a>
+            <!-- <button class="navbar-button">SIGN-UP</button> -->
+          <% } %>
         </div>       
       </a>
     </header>

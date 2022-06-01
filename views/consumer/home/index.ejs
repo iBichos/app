@@ -8,7 +8,7 @@
 <div class="main_section">
   <h1>Mais vendidos</h1>
   <div class='items'>
-  <% locals.products.forEach(function(product) { %>
+  <% products.forEach((product)=>{ %>
     <a href="/products/<%= product.id %>" class="item">
       <div class="image-container">
         <img src="<%= product.image_url %>" class="image" alt="product-image">

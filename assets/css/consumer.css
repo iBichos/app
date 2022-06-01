@@ -1,4 +1,5 @@
 @import "base.css";
 @import "consumer/header.css";
 @import "consumer/items.css";
-
+@import "consumer/home-items.css";
+@import "consumer/slideshow.css";

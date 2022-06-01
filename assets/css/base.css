@@ -2,9 +2,92 @@
   padding: 0;
   margin: 0;
   font-family: 'Lexend';
-  color: #3f3f3f
+  color: #1c1c1c;
 }
 
 a {
   text-decoration: none;
+}
+
+.button-green{
+  font-size: 20px;
+  font-weight: bold;
+  background: #96e072;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1f1f1f;
+  cursor: pointer;
+  border-radius:20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.button-green:hover, .button-green:focus, .button-green:active{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(0.9);
+}
+
+.button-red{
+  font-size: 20px;
+  font-weight: bold;
+  background: #F18B7E;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1c1c1c;
+  cursor: pointer;
+  border-radius:20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.button-red:hover, .button-red:focus, .button-red:active{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(0.9);
+}
+
+.button-blue{
+  font-size: 20px;
+  font-weight: bold;
+  background: #88ccf1;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1c1c1c;
+  cursor: pointer;
+  border-radius:20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.button-blue:hover, .button-blue:focus, .button-blue:active{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(0.9);
+}
+
+.text-button{
+  font-family: 50px;
+}
+
+.button-green:active{
+  transform: scale(0.95);
 }

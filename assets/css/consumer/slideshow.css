@@ -1,0 +1,31 @@
+/* Slideshow */
+
+.slideshow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    background-image: url(https://cdn.pixabay.com/photo/2015/07/09/19/32/dog-838281_960_720.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .slideshow > h1 {
+    font-size: 4rem;
+    padding-bottom: 50px;
+  }
+  
+  .slideshow > .subtitle {
+    font-size: 1.3rem;
+    max-width: 50%;
+    padding-bottom: 180px;
+    text-align: center;
+  }
+  
+  .main_section {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

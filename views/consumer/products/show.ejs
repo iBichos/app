@@ -1,1 +1,29 @@
 <%- contentFor('content') %>
+
+<main>
+    <div id="container">
+        <section>
+            <div class="row" id="image">
+                <img src="<%= product.image_url %>" width="512" height="512" alt="produto">
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <header>
+                    <h1 id="product-name"><%= product.name %></h1>
+                    <div id="rating">
+                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
+                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
+                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
+                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
+                        <img src="../../../public/assets/icons/partial-star.png" width="32" height="32" alt="Estrela de avaliação parcial.">
+                    </div>
+                </header>
+                
+                <p id="product-price">R$ <%= product.price_cents / 100 %></p>
+                <p><%= product.description %></p>
+                <button id="edit-button">Adicionar ao carrinho</button>
+            </div>
+        </section>
+    </div>
+</main>

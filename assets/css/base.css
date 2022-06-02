@@ -91,3 +91,13 @@ a {
 .button-green:active{
   transform: scale(0.95);
 }
+
+/* Solid border */
+hr.solid {
+  border-top: 2px solid #bbb;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  padding-bottom: 15px;
+  border-color: #88ccf1;
+}

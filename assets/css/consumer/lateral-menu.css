@@ -1,0 +1,37 @@
+/* Lateral Menu */
+
+.container {
+    display: flex;
+    height: 100vh
+  }
+  
+  .lateral-menu {
+    background-color: #fbfefb;
+    width: 200px;
+    padding: 30px;
+    height: 100%;
+  }
+  
+  .lateral-menu > ul {
+   list-style-type: none;
+   padding-bottom: 10px;
+   padding-top: 10px;
+  }
+  
+  .lateral-menu > ul > li {
+    padding: 5px 0px;
+  }
+  
+  .lateral-menu > ul > li > a {
+    color: inherit;
+  }
+  
+  .lateral-menu > ul > li > a:hover {
+    color: #F18B7E;
+    transition-duration: 0.3s;
+  }
+  
+  .lateral-menu > h2 {
+    padding-bottom: 10px;
+  }
+  

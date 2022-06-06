@@ -37,14 +37,16 @@
 
     </div>
     <div class='items'>
-      <a href="../catalogue/show.html" class="item">
+      <% products.forEach((product) => { %>
+      <a href="/products/<%= product.id %>" class="item">
         <div class="image-container">
-          <img src="https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg" class="image" alt="product-image">
+          <img src="<%= product.image_url %>" class="image" alt="product-image">
         </div>
         <div class="item-details">
-          <h3 class="title">Ração Golden 15 Kg</h3>
-          <h4>R$ 58,80</h4>
+          <h3 class="title"><%= product.name %></h3>
+          <h4>R$ <%= product.price_cents / 100 %></h4>
         </div>
       </a>
+      <% }) %>
     </div>
   </div>

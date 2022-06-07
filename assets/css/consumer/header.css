@@ -4,9 +4,10 @@
   justify-content: space-around;
   align-items: center;
   padding: 20px 50px;
-  border-bottom: 2px solid #3f3f3f;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
   background-color: #d5f3f9;
   color: #808080;
+  margin-bottom: 10px;
 }
 
 #navbar-logo {
@@ -79,7 +80,7 @@
   margin-right: 5px;
   border: solid;
   border-radius: 10px;
-  border-color: #3f3f3f;
+  border-color: #1c1c1c;
 }
 
 #navbar-cart-counter {

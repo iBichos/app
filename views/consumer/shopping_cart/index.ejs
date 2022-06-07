@@ -1,7 +1,7 @@
 <%- contentFor('content') %>
 
 <section class="cart">
-  <h1><strong> Carrinho </strong></h1>
+  <h1> Carrinho </h1>
   <div class="cart_infos">
     <div class="product_list">
       <div class="table_header">
@@ -13,26 +13,25 @@
           <img src="<%= product.image_url %>" alt="image" class="product_image" width="50px">
 
           <div class="product_name">
-            <h2><%= product.name %></h2>
+            <h3><%= product.name %></h3>
           </div>
           <div class="product_infos">
-            <span class="product_qtd"><strong><%= product.quantity %></strong></span>
-            <span class="product_price"><strong>R$ <%= product.price_cents / 100 %></strong></span>
+            <span class="product_qtd"><%= product.quantity %></span>
+            <span class="product_price">R$ <%= product.price_cents / 100 %></span>
           </div>
         </div>
       <% }) %>
     </div>
     <div class="infos">
-      <div class="zip_code">
-        Escreva seu CEP: 
-        <input type="text">
-      </div>
       <div class="subtotal">
-        <div>
+        <div class="cart-text">
+          Frete: R$15.00
+        </div>
+        <div class="cart-text">
           Subtotal (<%= shopping_cart.products.length %> items): <strong>R$ <%= shopping_cart_total %></strong>
         </div>
-        <div class="submit_button">
-          <a href="../order/show.html" class="button">Comprar </a>
+        <div class="button-green-medium">
+          <a href="../order/show.html">Comprar </a>
         </div>
       </div>
     </div>

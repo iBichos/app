@@ -1,6 +1,12 @@
 import express from 'express';
 import { application } from 'express';
 import expressLayouts from 'express-ejs-layouts'
+import { Customer } from './src/models/customer.js'
+import { Admin } from './src/models/admin.js'
+import { Merchant } from './src/models/merchant.js'
+import { Product } from './src/models/product.js'
+
+
 const app = express();
 const port = 3000
 
@@ -29,37 +35,7 @@ let shopping_cart = {
 }
 
 app.get('/', (req, res) => {
-  // trocar isso por os 4 primeiros produtos do bd
-  let products = [
-    {
-      "id": 1,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Golden 15 kg",
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "price_cents": 12999,
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    }
-  ]
+  let products = Product.list().slice(4)
 
   res.render('consumer/home/index', {
     layout: consumer_layout,
@@ -71,37 +47,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/products', (req, res) => {
-
-  let products = [
-    {
-      "id": 1,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Golden 15 kg",
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "price_cents": 12999,
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    }
-  ]
+  let products = Product.list()
 
   res.render('consumer/products/index', {
     layout: consumer_layout,
@@ -123,6 +69,7 @@ app.get('/products/:id', (req, res) => {
     "description": "Um produto muito bom para o seu cachorro que come muito.",
     "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
   }
+
   res.render('consumer/products/show', {
     layout: consumer_layout,
     product: product,

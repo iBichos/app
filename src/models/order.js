@@ -1,17 +1,15 @@
 import { ModelBase } from '../model_base.js'
 
-export class Merchant extends ModelBase {
-  static tableName = 'merchants'
+export class Order extends ModelBase {
+  static tableName = 'orders'
 
   static fields = [
     'username',
     'email',
     'password',
-    'cnpj',
+    'cpf',
     'phoneNumber',
-    'address',
-    'companyName',
-    'ownerName',
+    'adress',
   ]
 
   constructor(params) {
@@ -20,10 +18,8 @@ export class Merchant extends ModelBase {
     this.username = params.username
     this.email = params.email
     this.password = params.password
-    this.cnpj = params.cnpj
+    this.cpf = params.cpf
     this.phoneNumber = params.phoneNumber
     this.adress = params.adress
-    this.companyName = params.companyName
-    this.ownerName = params.ownerName
   }
 }

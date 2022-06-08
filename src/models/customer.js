@@ -9,7 +9,7 @@ export class Customer extends ModelBase {
     'password',
     'cpf',
     'phoneNumber',
-    'adress',
+    'address',
   ]
 
   constructor(params) {
@@ -20,6 +20,6 @@ export class Customer extends ModelBase {
     this.password = params.password
     this.cpf = params.cpf
     this.phoneNumber = params.phoneNumber
-    this.adress = params.adress
+    this.address = params.adress
   }
 }

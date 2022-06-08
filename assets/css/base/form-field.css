@@ -1,0 +1,37 @@
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #3F3F3F;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form .content .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input{
+  width: 15px;
+  height: 15px;
+  background: gray;
+}
+form .content label{
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+  align-items: center;
+}
+form .content .pass-link{
+  align-items: center;
+  color: gray;
+}

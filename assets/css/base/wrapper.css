@@ -1,8 +1,26 @@
+
+.profile h1 {
+  margin-top: 60px;
+  margin-right: 80px;
+  margin-left: 80px;
+  font-size: 50px;
+  margin-bottom: -50px;
+ }
+
+.container-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .wrapper{
     width: 900px;
-    background: #fff;
+    background: #fbfefb;
     border-radius: 15px;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.2);
     align-items: center;
   }
   .wrapper form{
@@ -42,4 +60,8 @@
   .wrapper form .form-row{
     display: flex;
     margin: 32px 0;
+  }
+
+  .profile .button-green{
+    margin-left: 610px;
   }

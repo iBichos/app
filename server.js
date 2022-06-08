@@ -1,4 +1,5 @@
 import express from 'express';
+import { application } from 'express';
 import expressLayouts from 'express-ejs-layouts'
 const app = express();
 const port = 3000
@@ -132,18 +133,47 @@ app.get('/products/:id', (req, res) => {
 })
 
 app.get('/shopping_cart', (req, res) => {
-  let shopping_cart_total = shopping_cart.products.reduce(
-    (sum, product) => sum + product.price_cents,
+  let shopping_cart_total_cents = shopping_cart.products.reduce(
+    (sum, product) => sum + product.price_cents * product.quantity,
     0
   )
 
   res.render('consumer/shopping_cart/index', {
     layout: consumer_layout,
-    session: true,
+    session: session,
     shopping_cart: shopping_cart,
     url: req.url,
-    shopping_cart_total: shopping_cart_total
+    shopping_cart_total: shopping_cart_total_cents / 100
   });
+})
+
+app.get('/profile', (req, res) => {
+
+  res.render('consumer/profile/edit', {
+    layout: consumer_layout,
+    session: session,
+    shopping_cart: shopping_cart,
+    url: req.url
+  })
+})
+
+app.get('/purchases', (req, res) => {
+  res.render('consumer/purchases/index', {
+    layout: consumer_layout,
+    session: session,
+    shopping_cart: shopping_cart,
+    url: req.url
+  })
+})
+
+app.get('/purchases/:id', (req, res) => {
+  res.render('consumer/purchases/index', {
+    layout: consumer_layout,
+    session: session,
+    shopping_cart: shopping_cart,
+    url: req.url,
+    purchase: purchase
+  })
 })
 
 app.listen(port, () => {

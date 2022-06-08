@@ -1,0 +1,22 @@
+<%- contentFor('content') %>
+
+<section class="order">
+  <div class="order_infos">
+    <div class="header">
+      <img src="../../../public/correct_icon.png" alt="image" class="correct_image">
+      <h1> Sua compra foi aprovada! </h1>
+    </div>
+
+    <div class="order_details">
+
+      <h2> O código do seu pedido é </h2>
+
+      <div class="order_code">
+        <%= purchase.id %>
+      </div>
+    </div>
+    <div class="shipping_infos">
+      Seu pedido será entregue logo em breve. A iBichos agradece sua compra e deseja a você e seu pet um excelente dia!
+    </div>
+  </div>
+</section>

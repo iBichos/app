@@ -35,6 +35,13 @@ export class ModelBase {
       return new this(register)
     }
 
+    static findByField(field, value) {
+      const registers = this.loadTable().data
+      const register = registers.find(element => element[field] === value)
+      if (register === undefined) return
+      return new this(register)
+    }
+
     static create(params) {
       const table = this.loadTable()
 

@@ -1,11 +1,9 @@
 import express from 'express';
-import { application } from 'express';
 import expressLayouts from 'express-ejs-layouts'
-import { Customer } from './src/models/customer.js'
-import { Admin } from './src/models/admin.js'
-import { Merchant } from './src/models/merchant.js'
-import { Product } from './src/models/product.js'
+import sessions from 'express-session';
 
+import { Customer } from './src/models/customer.js'
+import { Product } from './src/models/product.js'
 
 const app = express();
 const port = 3000
@@ -15,13 +13,18 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.use(express.static('./assets'));
+//session middleware
+app.use(sessions({
+  secret: "iBichosSecretKey",
+  saveUninitialized:true,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 },
+  resave: false
+}));
 
 // Rotas Consumer
 let consumer_layout = 'layouts/consumer'
 let merchant_layout = 'layouts/merchant'
 
-// logica de sessão do usuário vem aqui e é repassado para a view se o usuário está logado ou não
-let session = true
 // carrinho de compras
 let shopping_cart = {
   "products": [
@@ -41,7 +44,7 @@ app.get('/', (req, res) => {
   res.render('consumer/home/index', {
     layout: consumer_layout,
     products: products,
-    session: session,
+    session: req.session,
     url: req.url,
     shopping_cart: shopping_cart
   });
@@ -53,7 +56,7 @@ app.get('/products', (req, res) => {
   res.render('consumer/products/index', {
     layout: consumer_layout,
     products: products,
-    session: session,
+    session: req.session,
     url: req.url,
     shopping_cart: shopping_cart
   });
@@ -76,7 +79,7 @@ app.get('/products/:id', (req, res) => {
     product: product,
     url: req.url,
     shopping_cart: shopping_cart,
-    session: session
+    session: req.session
   });
 })
 
@@ -88,7 +91,7 @@ app.get('/shopping_cart', (req, res) => {
 
   res.render('consumer/shopping_cart/index', {
     layout: consumer_layout,
-    session: session,
+    session: req.session,
     shopping_cart: shopping_cart,
     url: req.url,
     shopping_cart_total: shopping_cart_total_cents / 100
@@ -99,7 +102,7 @@ app.get('/profile', (req, res) => {
 
   res.render('consumer/profile/edit', {
     layout: consumer_layout,
-    session: session,
+    session: req.session,
     shopping_cart: shopping_cart,
     url: req.url
   })
@@ -126,7 +129,7 @@ app.get('/purchases', (req, res) => {
 
   res.render('consumer/purchases/index', {
     layout: consumer_layout,
-    session: session,
+    session: req.session,
     shopping_cart: shopping_cart,
     url: req.url,
     purchases: purchases
@@ -134,9 +137,10 @@ app.get('/purchases', (req, res) => {
 })
 
 app.get('/purchases/:id', (req, res) => {
+  console.log(req.session)
   res.render('consumer/purchases/index', {
     layout: consumer_layout,
-    session: session,
+    session: req.session,
     shopping_cart: shopping_cart,
     url: req.url,
     purchase: purchase
@@ -200,6 +204,38 @@ app.get('/merchant/purchases', (req, res) => {
     url: req.url
   })
 })
+
+app.get('/login', (req, res) => {
+  if(req.session.userid){
+    res.send("Welcome User <a href=\'/logout'>click to logout</a>");
+  } 
+  else {
+    res.render('login', {
+      layout: consumer_layout,
+      session: req.session,
+      shopping_cart: shopping_cart,
+      url: req.url,
+    })
+  }
+})
+
+app.post('/login', (req, res) => {
+  let customer = Customer.findByField("username", req.body.username)
+  if(typeof customer !== "undefined" && customer.password === req.body.password){
+    req.session.customer=customer
+    req.session.isLoggedIn=true
+    console.log(req.session)
+    res.send(`Hey there, welcome <a href=\'/logout'>click to logout</a>`)
+  }
+  else{
+    res.send('Invalid username or password');
+  }
+})
+
+app.get('/logout',(req,res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)

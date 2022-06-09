@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 1,
+        "username": "acmlira",
+        "email": "acmlira@gmail.com",
+        "password": "1234",
+        "cpf": "12345678910",
+        "phoneNumber": "999999999",
+        "address": "Algum lugar"
+    }
+]

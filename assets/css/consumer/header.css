@@ -10,14 +10,9 @@
   margin-bottom: 10px;
 }
 
-#navbar-logo {
-  font-size: 1.5em;
-  color: #fffdf9;
-  background-color: #3f3f3f;
-  padding: 9px;
-  border: solid;
-  border-color: #3f3f3f;
-  border-radius: 10px;
+.logo{
+  max-width: 16%;
+  height: auto;
 }
 
 #navbar-logo:hover {

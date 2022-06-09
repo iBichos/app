@@ -1,23 +1,44 @@
 <%- contentFor('content') %>
 
-<div class="cc">
-  <div class="titulo">
-    <h1> Profile</h1>
+<section class="profile">
+<h1> Meu perfil </h1>
+<div class = "container-wrapper">
+<div class="wrapper">
+  <form action="#">
+     <div class="form-row">
+        <div class="field">
+           <input type="text" required>
+           <label>Nome</label>
+        </div>
+        <div class="field">
+           <input type="text" required>
+           <label>CPF</label>
+        </div>
+     </div>
+     <div class="form-row">
+        <div class="field">
+           <input type="text" required>
+           <label>Endereço</label>
+        </div>
+        <div class="field">
+           <input type="text" required>
+           <label>Telefone</label>
+        </div>
+     </div>
+     <div class="form-row">
+     <div class="field">
+        <input type="password" required>
+        <label>E-mail</label>
+     </div>
+     <div class="field">
+        <input type="password" required>
+        <label>Senha</label>
+     </div>
   </div>
-  <form class="card">
-    <div class="container">
-      <div class="coluna"> <input type="Enterprise name" class="input-box" placeholder="Enterprise name">
-        <input type="Username" class="input-box" placeholder="Username">
-        <input type="E-mail Address" class="input-box" placeholder="E-mail Address">
-        <input type="Passaword" class="input-box" placeholder="Passaword">
-      </div>
-      <div class="coluna"> 
-        <input type="CPF" class="input-box" placeholder="CPF">
-        <input type="Phone Number" class="input-box" placeholder="Phone Number">
-        <input type="Address" class="input-box" placeholder="Address">
-        <input type="XXXXXXX" class="input-box" placeholder="XXXXXXX">
-      </div>
-    </div>
-    <button type="button" class="sing-btn"> Save</button>  
+  <div class="button-green">
+     Salvar
+  </div>
   </form>
+  </div>
 </div>
+</section>

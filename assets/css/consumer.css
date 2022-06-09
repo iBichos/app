@@ -8,3 +8,5 @@
 @import "consumer/cart.css";
 @import "base/wrapper.css";
 @import "base/form-field.css";
+@import "consumer/purchase-items.css";
+@import "consumer/purchases.css";

@@ -1,0 +1,30 @@
+.purchase-items {
+    margin-top: 10px;
+    border: 1px solid #DEEAEC;
+    border-radius: 5px;
+  }
+  
+  .purchase-item {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 10px;
+  }
+  
+  .purchase-item > .info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .purchase-item > .info > .image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .purchase-item > .info > .name {
+    margin-left: 10px;
+  }
+  
+  .purchase-item > .values {
+    text-align: right;
+  }

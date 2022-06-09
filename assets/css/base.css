@@ -21,3 +21,14 @@ hr.solid {
   padding-bottom: 15px;
   border-color: #88ccf1;
 }
+
+h4 {
+    list-style-type: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+h4:hover {
+  color: #E82A2A;
+  transition-duration: 0.3s;
+}

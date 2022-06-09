@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/merchant.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon.png">
+    <title>iBichos | Lojista</title>
+  </head>
+
+  <body>
+    <header id="navbar">
+      <img src="icons/logo.png" class="logo">
+      <input id="navbar-search" type="text">
+      <nav>
+        <ul>
+          <li class="navbar-item <% if(url == '/') { %>active<% } %>"><a class="navbar-link" href="/">Início</a></li>
+          <li class="navbar-item <% if(url == '/products') { %>active<% } %>"><a class="navbar-link" href="/products">Produtos</a></li>
+        </ul>
+      </nav>
+      
+      <div id="navbar-consumer-area">
+
+        <% if (session) { %>
+          <div class="dropdown">
+            <button class="dropbtn navbar-button"><img src="/icons/profile.png" width="32" height="32" alt="profile"></button>
+            <div class="dropdown-content">
+              <a href="/profile">Meu perfil</a>
+              <a href="/purchases">Minhas compras</a>
+              <hr>
+              <a href="#">Sair</a>
+            </div>
+          </div>
+        <% } else { %>
+          <a href="../sign_in/index.html" class="navbar-button">Login</a>
+        <% } %>
+      </div>       
+      
+    </header>
+
+    <%- content %>
+  </body>
+</html>

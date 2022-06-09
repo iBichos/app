@@ -18,6 +18,7 @@ app.use(express.static('./assets'));
 
 // Rotas Consumer
 let consumer_layout = 'layouts/consumer'
+let merchant_layout = 'layouts/merchant'
 
 // logica de sessão do usuário vem aqui e é repassado para a view se o usuário está logado ou não
 let session = true
@@ -139,6 +140,64 @@ app.get('/purchases/:id', (req, res) => {
     shopping_cart: shopping_cart,
     url: req.url,
     purchase: purchase
+  })
+})
+
+app.get('/merchant/products', (req, res) => {
+  res.render('merchant/products/index', {
+    layout: merchant_layout,
+    session: session,
+    url: req.url
+  })
+})
+
+app.get('/merchant/products/:id/edit', (req, res) => {
+  let product = Product.find(req.params.id)
+
+  res.render('merchant/products/form', {
+    layout: merchant_layout,
+    session: session,
+    url: req.url,
+    product: product
+  })
+})
+
+app.get('/merchant/products/new', (req, res) => {
+
+  res.render('merchant/products/form', {
+    layout: merchant_layout,
+    session: session,
+    url: req.url
+  })
+})
+
+app.get('/merchant/profile', (req, res) => {
+  res.render('merchant/profile/edit', {
+    layout: merchant_layout,
+    session: session,
+    url: req.url
+  })
+})
+
+app.get('/merchant/sign_in', (req, res) => {
+  res.render('merchant/sign_in/index', {
+    session: session,
+    url: req.url
+  })
+})
+
+app.get('/merchant/sign_up', (req, res) => {
+  res.render('merchant/sign_up/index', {
+    session: session,
+    url: req.url
+  })
+})
+
+app.get('/merchant/purchases', (req, res) => {
+  res.render('merchant/purchases/index', {
+    layout: merchant_layout,
+    session: session,
+    url: req.url
   })
 })
 

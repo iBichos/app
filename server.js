@@ -25,7 +25,10 @@ app.use(sessions({
 app.get('/', ConsumerRouter.home)
 app.get('/products', ConsumerRouter.products)
 app.get('/products/:id', ConsumerRouter.productById)
+
 app.get('/shopping_cart', ConsumerRouter.cart)
+app.get('/add_to_cart/:product_id', ConsumerRouter.addToCart)
+
 app.get('/profile', isCustomer, isSignedIn, ConsumerRouter.profile)
 app.get('/purchases', ConsumerRouter.orders)
 app.get('/purchases/:id', ConsumerRouter.orderById)

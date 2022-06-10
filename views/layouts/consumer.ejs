@@ -22,7 +22,13 @@
         <a href="/shopping_cart">
           <div id="navbar-cart" class="">
             <img src="/icons/shopping-cart.png" width="32" height="32" alt="shopping-cart">
-            <span id="navbar-cart-counter" class="hidden"><%= shopping_cart.products.length %></span>
+            <span id="navbar-cart-counter" class="hidden">
+              <% if (shopping_cart) { %> 
+               <%= shopping_cart.length %>
+              <% } else { %>
+                0
+              <% } %>
+            </span>
           </div>
         </a>
         <% if (session.isSignedIn) { %>

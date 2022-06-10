@@ -22,8 +22,16 @@
                 
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p><%= product.description %></p>
-                <button id="edit-button">Adicionar ao carrinho</button>
+                <button id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
             </div>
         </section>
     </div>
 </main>
+
+<script>
+    const addToCartButton = document.querySelector("#add-to-cart")
+    addToCartButton.addEventListener('click', (e) => {
+        const product_id = e.target.dataset.productId
+        fetch(`/add_to_cart/${ product_id }`)
+    })
+</script>

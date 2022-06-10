@@ -8,16 +8,16 @@
         <h2>Quantidade </h2>
         <h2>Valor </h2>
       </div>
-      <% shopping_cart.products.forEach((product)=>{ %>
+      <% shopping_cart.forEach((item)=>{ %>
         <div class="product">
-          <img src="<%= product.image_url %>" alt="image" class="product_image" width="50px">
+          <img src="<%= item.product.image_url %>" alt="image" class="product_image" width="50px">
 
           <div class="product_name">
-            <h3><%= product.name %></h3>
+            <h3><%= item.product.name %></h3>
           </div>
           <div class="product_infos">
-            <span class="product_qtd"><%= product.quantity %></span>
-            <span class="product_price">R$ <%= product.price_cents / 100 %></span>
+            <span class="product_qtd"><%= item.quantity %></span>
+            <span class="product_price">R$ <%= item.product.price_cents / 100 %></span>
           </div>
         </div>
       <% }) %>
@@ -28,7 +28,7 @@
           Frete: R$15.00
         </div>
         <div class="cart-text">
-          Subtotal (<%= shopping_cart.products.length %> items): <strong>R$ <%= shopping_cart_total %></strong>
+          Subtotal (<%= shopping_cart.length %> items): <strong>R$ <%= shopping_cart_total %></strong>
         </div>
         <div class="button-green-medium">
           <a href="../order/show.html">Comprar </a>

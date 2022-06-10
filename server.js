@@ -2,8 +2,9 @@ import express from 'express';
 import expressLayouts from 'express-ejs-layouts'
 import sessions from 'express-session';
 
-import ConsumerRouter from './src/router/consumer.js';
-import MerchantRouter from './src/router/merchant.js'
+import ConsumerRouter from './src/router/consumer.router.js';
+import MerchantRouter from './src/router/merchant.router.js'
+import { isCustomer, isSignedIn } from "./src/service/session-validation.service.js";
 
 const app = express();
 const port = 3000
@@ -25,7 +26,7 @@ app.get('/', ConsumerRouter.home)
 app.get('/products', ConsumerRouter.products)
 app.get('/products/:id', ConsumerRouter.productById)
 app.get('/shopping_cart', ConsumerRouter.cart)
-app.get('/profile', ConsumerRouter.profile)
+app.get('/profile', isCustomer, isSignedIn, ConsumerRouter.profile)
 app.get('/purchases', ConsumerRouter.orders)
 app.get('/purchases/:id', ConsumerRouter.orderById)
 app.get('/login', ConsumerRouter.login)

@@ -1,7 +1,7 @@
-import ProductModel from '../model/product.js'
-import CustomerModel from "../model/customer.js";
+import ProductModel from '../model/product.model.js'
+import CustomerModel from "../model/customer.model.js";
 
-let layout = 'layouts/consumer'
+const layout = 'layouts/consumer'
 
 let shopping_cart = {
   "products": [
@@ -141,9 +141,10 @@ export default class ConsumerRouter {
 
   static doLogin = (req, res) => {
     let customer = CustomerModel.findByField("username", req.body.username)
-    if(typeof customer !== "undefined" && customer.password === req.body.password){
+    if(customer && customer.password === req.body.password){
       req.session.customer=customer
-      req.session.isLoggedIn=true
+      req.session.isSignedIn=true
+      req.session.isCustomer=true
       console.log(req.session)
       res.send(`Hey there, welcome <a href=\'/logout'>click to logout</a>`)
     }

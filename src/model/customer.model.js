@@ -1,7 +1,7 @@
-import AbstractModel from './abstract.js'
+import DataAccessModel from './data-access.model.js'
 
-export default class OrderModel extends AbstractModel {
-  static tableName = 'orders'
+export default class CustomerModel extends DataAccessModel {
+  static tableName = 'customers'
 
   static fields = [
     'username',
@@ -9,7 +9,7 @@ export default class OrderModel extends AbstractModel {
     'password',
     'cpf',
     'phoneNumber',
-    'adress',
+    'address',
   ]
 
   constructor(params) {
@@ -20,6 +20,6 @@ export default class OrderModel extends AbstractModel {
     this.password = params.password
     this.cpf = params.cpf
     this.phoneNumber = params.phoneNumber
-    this.adress = params.adress
+    this.address = params.adress
   }
 }

@@ -1,6 +1,6 @@
-import AbstractModel from './abstract.js'
+import DataAccessModel from './data-access.model.js'
 
-export default class MerchantModel extends AbstractModel {
+export default class MerchantModel extends DataAccessModel {
   static tableName = 'merchants'
 
   static fields = [

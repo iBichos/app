@@ -3,10 +3,10 @@ import { LowSync, JSONFileSync } from 'lowdb'
 import { fileURLToPath } from 'url'
 
 
-export class ModelBase {
+export default class AbstractModel {
     static loadTable() {
       const __dirname = dirname(fileURLToPath(import.meta.url));
-      const file = join(__dirname, `../data/${this.tableName}/data.json`)
+      const file = join(__dirname, `../../data/${this.tableName}/data.json`)
   
       const adapter = new JSONFileSync(file)
       const dbTable = new LowSync(adapter)

@@ -1,7 +1,7 @@
-import { ModelBase } from '../model_base.js'
-import { Merchant } from './merchant.js'
+import AbstractModel from './abstract.js'
+import MerchantModel from './merchant.js'
 
-export class Product extends ModelBase {
+export default class ProductModel extends AbstractModel {
   static tableName = 'products'
 
   static fields = [
@@ -23,6 +23,6 @@ export class Product extends ModelBase {
   }
 
   merchant() {
-    return Merchant.find(this.merchant_id)
+    return MerchantModel.find(this.merchant_id)
   }
 }

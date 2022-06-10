@@ -1,7 +1,7 @@
-import { ModelBase } from '../model_base.js'
+import AbstractModel from './abstract.js'
 
-export class Order extends ModelBase {
-  static tableName = 'orders'
+export default class CustomerModel extends AbstractModel {
+  static tableName = 'customers'
 
   static fields = [
     'username',
@@ -9,7 +9,7 @@ export class Order extends ModelBase {
     'password',
     'cpf',
     'phoneNumber',
-    'adress',
+    'address',
   ]
 
   constructor(params) {
@@ -20,6 +20,6 @@ export class Order extends ModelBase {
     this.password = params.password
     this.cpf = params.cpf
     this.phoneNumber = params.phoneNumber
-    this.adress = params.adress
+    this.address = params.adress
   }
 }

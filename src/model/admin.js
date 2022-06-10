@@ -1,6 +1,6 @@
-import { ModelBase } from '../model_base.js'
+import AbstractModel from './abstract.js'
 
-export class Admin extends ModelBase {
+export default class AdminModel extends AbstractModel {
   static tableName = 'admins'
 
   static fields = [

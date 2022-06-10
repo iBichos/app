@@ -25,18 +25,18 @@
             <span id="navbar-cart-counter" class="hidden"><%= shopping_cart.products.length %></span>
           </div>
         </a>
-        <% if (session.isLoggedIn) { %>
+        <% if (session.isSignedIn) { %>
           <div class="dropdown">
             <button class="dropbtn navbar-button"><img src="/icons/profile.png" width="32" height="32" alt="profile"></button>
             <div class="dropdown-content">
               <a href="/profile">Meu perfil</a>
               <a href="/purchases">Minhas compras</a>
               <hr>
-              <a href="#">Sair</a>
+              <a href="/logout">Sair</a>
             </div>
           </div>
         <% } else { %>
-          <a href="../sign_in/index.html" class="navbar-button">Login</a>
+          <a href="/login" class="navbar-button">Login</a>
         <% } %>
       </div>       
       

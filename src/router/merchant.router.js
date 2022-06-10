@@ -1,6 +1,6 @@
 import ProductModel from "../model/product.model.js";
 
-let layout = 'layouts/merchant'
+const layout = 'layouts/merchant'
 
 export default class MerchantRouter {
   static profile = (request, response) => {
@@ -39,19 +39,32 @@ export default class MerchantRouter {
     })
   }
 
-  static signIn = (req, res) => {
-    res.render('merchant/sign_in/index', {
+  static login = (req, res) => {
+    res.render('merchant/login/index', {
+      layout,
       session: req.session,
       url: req.url
     })
   }
 
-  static signUp = (req, res) => {
-    res.render('merchant/sign_up/index', {
-      layout,
-      session: req.session,
-      url: req.url
-    })
+  static doLogin = (req, res) => {
+    let merchant = MerchantModel.findByField("username", req.body.username)
+    if(merchant && merchant.password === req.body.password){
+      req.session.merchant=merchant
+      req.session.isSignedIn=true
+      req.session.isMerchant=true
+      console.log(req.session)
+
+      res.redirect('/merchant/products/index');
+    }
+    else{
+      res.send('Invalid username or password');
+    }
+  }
+
+  static logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
   }
 
   static orders = (req, res) => {

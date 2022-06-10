@@ -37,8 +37,9 @@ app.get('/merchant/products', MerchantRouter.products)
 app.get('/merchant/products/:id/edit', MerchantRouter.productById)
 app.get('/merchant/products/new', MerchantRouter.createProduct)
 app.get('/merchant/profile', MerchantRouter.profile)
-app.get('/merchant/sign_in', MerchantRouter.signIn)
-app.get('/merchant/sign_up', MerchantRouter.signUp)
+app.get('/merchant/login', MerchantRouter.login)
+app.post('/merchant/login', MerchantRouter.doLogin)
+app.get('/merchant/logout', MerchantRouter.logout)
 app.get('/merchant/purchases', MerchantRouter.orders)
 
 app.listen(port, () => {

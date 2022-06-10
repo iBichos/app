@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "username": "acmlira",
+        "username": "teste",
         "email": "acmlira@gmail.com",
-        "password": "1234",
+        "password": "123",
         "cpf": "12345678910",
         "phoneNumber": "999999999",
         "address": "Algum lugar"

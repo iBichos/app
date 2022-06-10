@@ -42,16 +42,8 @@ export default class ConsumerRouter {
   
   static productById = (req, res) => {
     // find product with req.params.id
-    product.find(req.params.id)
-    
-    let product = {
-      "id": 1,
-      "name": "Golden 15 kg",
-      "price_cents": 12999,
-      "description": "Um produto muito bom para o seu cachorro que come muito.",
-      "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-    }
-    
+    let product = ProductModel.find(req.params.id)
+
     res.render('consumer/products/show', {
       layout: layout,
       product: product,
@@ -68,7 +60,7 @@ export default class ConsumerRouter {
     )
   
     res.render('consumer/shopping_cart/index', {
-      layout: consumer_layout,
+      layout: layout,
       session: req.session,
       shopping_cart: shopping_cart,
       url: req.url,
@@ -146,7 +138,8 @@ export default class ConsumerRouter {
       req.session.isSignedIn=true
       req.session.isCustomer=true
       console.log(req.session)
-      res.send(`Hey there, welcome <a href=\'/logout'>click to logout</a>`)
+
+      res.redirect('/');
     }
     else{
       res.send('Invalid username or password');

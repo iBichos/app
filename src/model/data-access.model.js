@@ -27,7 +27,7 @@ export default class DataAccessModel {
 
   static find(id) {
     const registers = this.loadTable().data
-    const register = registers.find(element => element.id === id)
+    const register = registers.find(element => element.id == id)
 
     if (register === undefined) return
 
@@ -36,7 +36,7 @@ export default class DataAccessModel {
 
   static findByField(field, value) {
     const registers = this.loadTable().data
-    const register = registers.find(element => element[field] === value)
+    const register = registers.find(element => element[field] == value)
     if (register === undefined) return false
     return new this(register)
   }

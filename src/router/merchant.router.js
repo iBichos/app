@@ -30,13 +30,30 @@ export default class MerchantRouter {
     })
   }
 
-  static createProduct = (req, res) => {
+  static newProduct = (req, res) => {
 
     res.render('merchant/products/form', {
       layout,
       session: req.session,
       url: req.url
     })
+  }
+
+  static editProduct = (req, res) => {
+
+    res.render('merchant/products/form', {
+      layout,
+      session: req.session,
+      url: req.url
+    })
+  }
+
+  static updateProduct = (req, res) => {
+
+  }
+
+  static createProduct = (req, res) => {
+    
   }
 
   static login = (req, res) => {

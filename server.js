@@ -38,8 +38,12 @@ app.post('/login', ConsumerRouter.doLogin)
 app.get('/logout', ConsumerRouter.logout);
 
 app.get('/merchant/products', MerchantRouter.products)
-app.get('/merchant/products/:id/edit', MerchantRouter.productById)
-app.get('/merchant/products/new', MerchantRouter.createProduct)
+app.get('/merchant/products/:id/edit', MerchantRouter.editProduct)
+app.get('/merchant/products/new', MerchantRouter.newProduct)
+app.post('/merchant/products', MerchantRouter.createProduct)
+app.put('/merchant/products', MerchantRouter.updateProduct)
+
+
 app.get('/merchant/profile', MerchantRouter.profile)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)

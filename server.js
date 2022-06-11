@@ -3,7 +3,8 @@ import expressLayouts from 'express-ejs-layouts'
 import sessions from 'express-session';
 
 import ConsumerRouter from './src/router/consumer.router.js';
-import MerchantRouter from './src/router/merchant.router.js'
+import MerchantRouter from './src/router/merchant.router.js';
+import AdminRouter from './src/router/admin.router.js'
 import { isCustomer, isSignedIn } from "./src/service/session-validation.service.js";
 
 const app = express();
@@ -44,6 +45,13 @@ app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', MerchantRouter.logout)
 app.get('/merchant/orders', MerchantRouter.orders)
+
+app.get('/admin/consumers', AdminRouter.consumers)
+app.get('/admin/merchants', AdminRouter.merchants)
+app.get('/admin/products', AdminRouter.products)
+app.get('/admin/login', AdminRouter.login)
+app.post('/admin/doLogin', MerchantRouter.doLogin)
+app.get('/admin/logout', MerchantRouter.logout)
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)

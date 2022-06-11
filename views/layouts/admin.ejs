@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon.png">
+    <title>iBichos | Admin</title>
+  </head>
+
+  <body>
+    <header id="navbar">
+      <img src="/icons/logo.png" class="logo">
+      <nav>
+        <ul>
+          <li class="navbar-item <% if(url == '/admin/consumers') { %>active<% } %>"><a class="navbar-link" href="/admin/consumers">Consumidores</a></li>
+          <li class="navbar-item <% if(url == '/admin/merchants') { %>active<% } %>"><a class="navbar-link" href="/admin/merchants">Lojistas</a></li>
+          <li class="navbar-item <% if(url == '/admin/products') { %>active<% } %>"><a class="navbar-link" href="/admin/products">Produtos</a></li>
+        </ul>
+      </nav>
+      
+      <a href="/logout">Sair</a>
+  
+    </header>
+
+    <%- content %>
+  </body>
+</html>

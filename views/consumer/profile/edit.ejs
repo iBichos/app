@@ -1,29 +1,29 @@
 <%- contentFor('content') %>
 
-<section class="profile">
+<section class="form">
   <h1> Meu perfil </h1>
   <div class = "container-wrapper">
     <div class="wrapper">
       <form action="#">
         <div class="form-row">
-            <div class="field">
-              <input type="text" value="<%= session.customer.username %>" required>
-              <label>Nome</label>
-            </div>
-            <div class="field">
-              <input type="text" required>
-              <label>CPF</label>
-            </div>
+          <div class="field">
+            <input type="text" value="<%= session.customer.username %>" required>
+            <label>Nome</label>
+          </div>
+          <div class="field">
+            <input type="text" required>
+            <label>CPF</label>
+          </div>
         </div>
         <div class="form-row">
-            <div class="field">
-              <input type="text" required>
-              <label>Endereço</label>
-            </div>
-            <div class="field">
-              <input type="text" required>
-              <label>Telefone</label>
-            </div>
+          <div class="field">
+            <input type="text" required>
+            <label>Endereço</label>
+          </div>
+          <div class="field">
+            <input type="text" required>
+            <label>Telefone</label>
+          </div>
         </div>
         <div class="form-row">
           <div class="field">

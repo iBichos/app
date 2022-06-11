@@ -1,4 +1,9 @@
 @import "base/dropdown-menu.css";
+@import "base/header.css";
+@import "base/table.css";
+@import "base/form-field.css";
+@import "base/wrapper.css";
+@import "base/buttons.css";
 
 * {
   padding: 0;

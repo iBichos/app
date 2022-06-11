@@ -6,7 +6,7 @@ const layout = 'layouts/consumer'
 
 export default class ConsumerRouter { 
   static home = (request, response) => {
-    let products = ProductModel.list().slice(4)
+    let products = ProductModel.list().slice(0, 4)
 
     response.render('consumer/home/index', {
       layout,
@@ -43,15 +43,23 @@ export default class ConsumerRouter {
   }
 
   static cart = (req, res) => {
-    let shopping_cart_total_cents = req.session.cart.reduce(
-      (sum, item) => sum + item.product.price_cents * item.quantity,
-      0
-    )
+    let shopping_cart_total_cents = 0
+    if (req.session.cart != undefined) {
+      shopping_cart_total_cents = req.session.cart.reduce(
+        (sum, item) => sum + item.product.price_cents * item.quantity,
+        0
+      )
+    }
+
+    let shopping_cart = req.session.cart
+    if (shopping_cart == undefined) {
+      shopping_cart = []
+    }
   
     res.render('consumer/shopping_cart/index', {
       layout: layout,
       session: req.session,
-      shopping_cart: req.session.cart,
+      shopping_cart: shopping_cart,
       url: req.url,
       shopping_cart_total: shopping_cart_total_cents / 100
     });
@@ -134,7 +142,6 @@ export default class ConsumerRouter {
     }
     else {
       res.render('login', {
-        layout: layout,
         session: req.session,
         shopping_cart: req.session.cart,
         url: req.url,

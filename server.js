@@ -43,7 +43,7 @@ app.get('/merchant/profile', MerchantRouter.profile)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', MerchantRouter.logout)
-app.get('/merchant/purchases', MerchantRouter.orders)
+app.get('/merchant/orders', MerchantRouter.orders)
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)

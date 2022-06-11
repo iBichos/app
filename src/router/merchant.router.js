@@ -68,7 +68,7 @@ export default class MerchantRouter {
   }
 
   static orders = (req, res) => {
-    res.render('merchant/purchases/index', {
+    res.render('merchant/orders/index', {
       layout,
       session: req.session,
       url: req.url

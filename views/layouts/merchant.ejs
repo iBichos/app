@@ -9,32 +9,24 @@
 
   <body>
     <header id="navbar">
-      <img src="icons/logo.png" class="logo">
-      <input id="navbar-search" type="text">
+      <img src="/icons/logo.png" class="logo">
       <nav>
         <ul>
-          <li class="navbar-item <% if(url == '/') { %>active<% } %>"><a class="navbar-link" href="/">Início</a></li>
-          <li class="navbar-item <% if(url == '/products') { %>active<% } %>"><a class="navbar-link" href="/products">Produtos</a></li>
+          <li class="navbar-item <% if(url == '/merchant/orders') { %>active<% } %>"><a class="navbar-link" href="/merchant/orders">Pedidos</a></li>
+          <li class="navbar-item <% if(url == '/merchant/products') { %>active<% } %>"><a class="navbar-link" href="/merchant/products">Produtos</a></li>
         </ul>
-      </nav>
-      
-      <div id="navbar-consumer-area">
-
-        <% if (session.isSignedIn) { %>
-          <div class="dropdown">
-            <button class="dropbtn navbar-button"><img src="/icons/profile.png" width="32" height="32" alt="profile"></button>
-            <div class="dropdown-content">
-              <a href="/profile">Meu perfil</a>
-              <a href="/purchases">Minhas compras</a>
-              <hr>
-              <a href="#">Sair</a>
-            </div>
-          </div>
-        <% } else { %>
-          <a href="../sign_in/index.html" class="navbar-button">Login</a>
-        <% } %>
-      </div>       
-      
+      </nav> 
+  
+      <div class="dropdown">
+        <div id="navbar-merchant-profile">
+          <img  src="/icons/profile.png" width="32" height="32" alt="Icone contido em um botão que leva ao perfil do vendedor ao clicar.">
+        </div>
+        <div class="dropdown-content">
+          <a href="/merchant/profile">Meu perfil</a>
+          <hr>
+          <a href="/logout">Sair</a>
+        </div>
+      </div>
     </header>
 
     <%- content %>

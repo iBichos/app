@@ -49,11 +49,18 @@ export default class MerchantRouter {
   }
 
   static updateProduct = (req, res) => {
-
+    ProductModel.update(req.body.id, req.body)
+    this.editProduct(req,res)
   }
 
   static createProduct = (req, res) => {
-    
+    ProductModel.create(req.body)
+    this.editProduct(req,res)
+  }
+
+  static deleteProduct = (req, res) => {
+    ProductModel.delete(req.body.id)
+    this.products(req,res)
   }
 
   static login = (req, res) => {

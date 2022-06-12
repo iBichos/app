@@ -6,7 +6,7 @@
   }
   
   .lateral-menu {
-    background-color: #fbfefb;
+    background-color: var(--lateral-menu);
     width: 200px;
     padding: 30px;
     height: 100%;
@@ -23,7 +23,8 @@
   }
   
   .lateral-menu > ul > li > a {
-    color: inherit;
+    color: var(--text-color);
+    
   }
   
   .lateral-menu > ul > li > a:hover {
@@ -33,5 +34,6 @@
   
   .lateral-menu > h2 {
     padding-bottom: 10px;
+    color: var(--text-color)
   }
   

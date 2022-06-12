@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   const darkClass = localStorage.getItem('dark-class')
-  document.querySelector('html').classList.add(darkClass)
 
-  document.querySelector('.dark_toggle').addEventListener( 'click', () => {
+  if (darkClass == 'dark-mode') {
+    document.querySelector('body').classList.add(darkClass)
+  } 
+
+  const toggleButton = document.querySelector('.dark_toggle')
+  toggleButton.addEventListener('click', () => {
+    const body = document.querySelector('body')
     const darkClass = localStorage.getItem('dark-class')
 
-    if (darkClass === 'dark-mode') {
-      document.querySelector('html').classList.remove('dark-mode')
-      localStorage.setItem('dark-class', 'dark-mode')
-    } else {      
-      document.querySelector('html').classList.add('dark-mode')
+    if (darkClass == 'dark-mode') {
+      body.classList.remove('dark-mode')
       localStorage.removeItem('dark-class')
+    } else {
+      body.classList.add('dark-mode')
+      localStorage.setItem('dark-class', 'dark-mode')
     }
   })
 })

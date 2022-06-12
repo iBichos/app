@@ -1,4 +1,5 @@
 import ProductModel from "../model/product.model.js";
+import OrderModel from "../model/order.model.js";
 
 const layout = 'layouts/merchant'
 
@@ -89,10 +90,13 @@ export default class MerchantRouter {
   }
 
   static orders = (req, res) => {
+    let orders = OrderModel.list()
+
     res.render('merchant/orders/index', {
       layout,
       session: req.session,
-      url: req.url
+      url: req.url,
+      orders: orders
     })
   }
 }

@@ -4,8 +4,8 @@ const layout = 'layouts/admin'
 
 export default class AdminRouter {
 
-  static consumers = (req, res) => {
-    res.render('admin/consumers/index', {
+  static customers = (req, res) => {
+    res.render('admin/customers/index', {
       layout,
       session: req.session,
       url: req.url

@@ -20,6 +20,6 @@ export default class CustomerModel extends DataAccessModel {
     this.password = params.password
     this.cpf = params.cpf
     this.phoneNumber = params.phoneNumber
-    this.address = params.adress
+    this.address = params.address
   }
 }

@@ -91,10 +91,8 @@ export default class DataAccessModel {
 
     // atualizando os campos no banco usando os campos do model e os parametros passados
     this.fields.forEach((field) => {
-      if (params[field] !== null) {
+      if (params[field] !== null && params[field] !== undefined) {
         table.data[index][field] = params[field]
-      } else {
-        table.data[index][field] = null
       }
     })
     table.write()

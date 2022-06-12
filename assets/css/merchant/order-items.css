@@ -1,11 +1,10 @@
 .order-items {
-  margin-top: 10px;
+  margin: 10px 0px;
   border: 1px solid var(--nav-color);
   border-radius: 5px;
 }
 
 .order-item {
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   display: flex;

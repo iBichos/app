@@ -110,4 +110,9 @@ export default class MerchantRouter {
       order: order
     })
   }
+
+  static updateOrder = (req, res) => {
+    OrderModel.update(req.params.id, req.body)
+    this.showOrder(req,res)
+  }
 }

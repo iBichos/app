@@ -1,4 +1,6 @@
 @import "base.css";
+@import "merchant/orders.css";
+@import "merchant/order-items.css";
 
 section {
   margin-top: 30px;

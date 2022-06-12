@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Dog Show 15 kfg",
-    "price_cents": "12999",
-    "description": "È paia mias é a vida"
-  },
-  {
     "id": 3,
     "name": "Golden 15 kg",
     "price_cents": 12999,
@@ -60,5 +54,11 @@
     "price_cents": 12999,
     "merchant_id": 1,
     "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+  },
+  {
+    "id": 11,
+    "name": "produtinho gente boa",
+    "price_cents": "123132",
+    "description": "description"
   }
 ]

@@ -61,6 +61,7 @@ app.get('/merchant/logout', MerchantRouter.logout)
 
 app.get('/merchant/orders', MerchantRouter.orders)
 app.get('/merchant/orders/:id', MerchantRouter.showOrder)
+app.put('/merchant/orders/:id', MerchantRouter.updateOrder)
 
 app.get('/admin/customers', AdminRouter.customers)
 app.get('/admin/merchants', AdminRouter.merchants)

@@ -1,5 +1,6 @@
 import ProductModel from '../model/product.model.js'
 import CustomerModel from "../model/customer.model.js";
+import OrderModel from "../model/order.model.js";
 
 const layout = 'layouts/customer'
 
@@ -98,23 +99,7 @@ export default class customerRouter {
   }
 
   static orders = (req, res) => {
-    let orders = [
-      {
-        "id": 3231,
-        "created_at": "18 de maio de 2022",
-        "total_price_cents": 12300,
-        "status": "Pedido enviado",
-        "products": [
-          {
-            "id": 1,
-            "quantity": 3,
-            "name": "Golden 15 kg",
-            "price_cents": 12999,
-            "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
-          }
-        ]
-      }
-    ]
+    let orders = OrderModel.list()
   
     res.render('customer/orders/index', {
       layout: layout,

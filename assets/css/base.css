@@ -89,6 +89,11 @@ td{
 color: var(--text-color);
 }
 
+td > a{
+  color: var(--text-color);
+  }
+
+
 label{
   color: var(--text-color); 
   font-size: 17px;
@@ -102,4 +107,8 @@ button, input[type="submit"], input[type="reset"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.delete{
+  color: var(--text-color);
 }

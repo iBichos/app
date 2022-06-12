@@ -26,7 +26,7 @@
   border: solid;
   border-color: #deeaec;
   border-radius: 10px;
-  font-size: 17px;
+  font-size: 1.1rem;
   width: 30%;
   background: url(../../icons/search.png) no-repeat;
   background-position: right 3% center;
@@ -61,6 +61,7 @@
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease 0s;
+  font-size: 1.3rem;
 }
 
 .navbar-link:hover {
@@ -94,6 +95,7 @@
   margin-left: 5px;
   margin-right: 5px;
   border: solid;
+  font-size: 1.5rem;
   border-radius: 10px;
   border-color: #96e072;
   background-color: #96e072;

@@ -38,12 +38,12 @@ main {
   }
   
   #product-name {
-    font-size: 32px;
+    font-size: 2rem;
   }
   
   #product-price {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 2rem;
   }
   
   #edit-button {

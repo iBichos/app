@@ -13,8 +13,11 @@
   --border-color: rgba(0, 0, 0, 0.175);
 }
 
-body {
+html {
   font-size: 16px;
+}
+
+body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -52,9 +55,9 @@ hr.solid {
 }
 
 h4 {
-    list-style-type: none;
-    padding-bottom: 10px;
-    padding-top: 10px;
+  list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 h4:hover {

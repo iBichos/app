@@ -1,28 +1,27 @@
 <%- contentFor('content') %>
-
 <main>
     <div id="container">
         <section>
             <div class="row" id="image">
-                <img src="<%= product.image_url %>" width="512" height="512" alt="produto">
+                <img src="<%= product.image_url %>" width="350" height="350">
             </div>
         </section>
         <section>
             <div class="row">
                 <header>
-                    <h1 id="product-name"><%= product.name %></h1>
+                    <h2 id="product-name"><%= product.name %></h2>
                     <div id="rating">
-                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
-                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
-                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
-                        <img src="../../../public/assets/icons/star.png" width="32" height="32" alt="Estrela de avaliação completa.">
-                        <img src="../../../public/assets/icons/partial-star.png" width="32" height="32" alt="Estrela de avaliação parcial.">
+                        <img src="/icons/star.png" width="24" height="24">
+                        <img src="/icons/star.png" width="24" height="24">
+                        <img src="/icons/star.png" width="24" height="24">
+                        <img src="/icons/star.png" width="24" height="24">
+                        <img src="/icons/partial-star.png" width="24" height="24">
                     </div>
                 </header>
                 
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p><%= product.description %></p>
-                <button id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
+                <button class="button-add" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
             </div>
         </section>
     </div>

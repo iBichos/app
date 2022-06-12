@@ -58,7 +58,9 @@ app.get('/merchant/profile', MerchantRouter.profile)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', MerchantRouter.logout)
+
 app.get('/merchant/orders', MerchantRouter.orders)
+app.get('/merchant/orders/:id', MerchantRouter.showOrder)
 
 app.get('/admin/customers', AdminRouter.customers)
 app.get('/admin/merchants', AdminRouter.merchants)

@@ -3,7 +3,7 @@
     "id": 1,
     "created_at": "18 de maio de 2022",
     "total_price_cents": 12300,
-    "status": "Pedido enviado",
+    "status": "Pedido pendente",
     "customer_id": 1,
     "products": [
       {

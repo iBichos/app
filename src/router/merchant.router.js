@@ -99,4 +99,15 @@ export default class MerchantRouter {
       orders: orders
     })
   }
+
+  static showOrder = (req, res) => {
+    let order = OrderModel.find(req.params.id)
+
+    res.render('merchant/orders/show', {
+      layout,
+      session: req.session,
+      url: req.url,
+      order: order
+    })
+  }
 }

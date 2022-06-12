@@ -13,7 +13,15 @@
   <body>
     <header id="navbar">
       <img src="/icons/logo.png" class="logo">
-      <input id="navbar-search" type="text">
+      <!-- <div id="search-container"> -->
+        <input id="search-field" onkeyup="openList() "type="text">
+        <ul id="suggestion-list">
+          <% session.products.slice(0, 10).forEach(product => { %>
+            <li><a href= "/products/<%= product.id %>"><%= product.name %></a></li>
+          <% }) %>
+        </ul>
+      <!-- </div> -->
+      
       <nav>
         <ul>
           <li class="navbar-item <% if(url == '/') { %>active<% } %>"><a class="navbar-link" href="/">Início</a></li>
@@ -54,5 +62,42 @@
     </header>
 
     <%- content %>
+
+    <script>
+      checkInputValueAndHideList()
+
+      function openList() {
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById("search-field");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("suggestion-list");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+              } else {
+                  li[i].style.display = "none";
+              }
+          }
+          
+          checkInputValueAndHideList()
+          
+      }
+
+      function checkInputValueAndHideList() {
+          const ul = document.getElementById("suggestion-list");
+          const input = document.getElementById("search-field");
+
+      //        console.log('input.value', input.value) 
+          
+          if(!input.value) {
+              ul.style.display = 'none'
+          } else {
+              ul.style.display = 'block'
+          }
+      }
+    </script>
   </body>
 </html>

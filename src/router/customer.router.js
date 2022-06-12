@@ -9,7 +9,7 @@ const layout = 'layouts/customer'
 export default class customerRouter { 
   static home = (request, response) => {
     let products = ProductModel.list().slice(0, 4)
-
+    request.session.products = products
     response.render('customer/home/index', {
       layout,
       products: products,
@@ -21,7 +21,7 @@ export default class customerRouter {
   
   static products = (request, response) => {
     let products = ProductModel.list()
-
+    request.session.products = products
     response.render('customer/products/index', {
       layout: layout,
       products: products,

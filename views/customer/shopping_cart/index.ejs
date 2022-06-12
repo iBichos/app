@@ -30,9 +30,12 @@
         <div class="cart-text">
           Subtotal (<%= shopping_cart.length %> items): <strong>R$ <%= shopping_cart_total %></strong>
         </div>
-        <div class="button-green-medium">
-          <a href="../order/show.html">Comprar </a>
-        </div>
+        <% if (session.customer == undefined) { %>
+          <a href="/login" class="button-green-medium">Fazer login</a>
+        <% } else { %>
+          <a href="/create_order" class="button-green-medium">Comprar</a>
+        <% } %>
+        
       </div>
     </div>
   </div>

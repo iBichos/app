@@ -38,8 +38,11 @@ app.get('/shopping_cart', CustomerRouter.cart)
 app.get('/add_to_cart/:product_id', CustomerRouter.addToCart)
 
 app.get('/profile', isCustomer, isSignedIn, CustomerRouter.profile)
+
 app.get('/orders', CustomerRouter.orders)
 app.get('/orders/:id', CustomerRouter.showOrder)
+app.get('/create_order', CustomerRouter.createOrder)
+
 app.get('/login', CustomerRouter.login)
 app.post('/login', CustomerRouter.doLogin)
 app.get('/logout', CustomerRouter.logout);

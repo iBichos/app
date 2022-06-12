@@ -1,6 +1,7 @@
 import ProductModel from '../model/product.model.js'
 import CustomerModel from "../model/customer.model.js";
 import OrderModel from "../model/order.model.js";
+import DataAccessModel from '../model/data-access.model.js';
 
 const layout = 'layouts/customer'
 
@@ -110,14 +111,46 @@ export default class customerRouter {
     })
   }
 
+  static createOrder = (req, res) => {
+
+    let total_price_cents = req.session.cart.reduce(
+      (sum, item) => sum + item.product.price_cents * item.quantity,
+      0
+    )
+
+    let products = []
+
+    req.session.cart.forEach((item)=> {
+      products.push({
+        id: item.product.id,
+        quantity: item.quantity,
+        name: item.product.name,
+        price_cents: item.product.price_cents,
+        image_url: item.product.image_url
+      })
+    })
+
+    let order_params = {
+      "created_at": Date.now,
+      "total_price_cents": total_price_cents,
+      "status": "Pedido pendente",
+      "customer_id": req.session.customer.id,
+      "products": products
+    }
+
+    OrderModel.create(order_params)
+    
+    req.session.cart = []
+
+    this.showOrder(req, res)
+  }
+
   static showOrder = (req, res) => {
-    console.log(req.session)
-    res.render('customer/orders/index', {
+    res.render('customer/orders/show', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
       url: req.url,
-      order: order
     })
   }
 

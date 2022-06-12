@@ -1,31 +1,57 @@
 import ProductModel from "../model/product.model.js";
+import MerchantModel from "../model/merchant.model.js";
+import CustomerModel from "../model/customer.model.js";
 
 const layout = 'layouts/admin'
 
 export default class AdminRouter {
+  static customers = (req, res) => {
+    let customers = CustomerModel.list()
+  }
 
   static customers = (req, res) => {
     res.render('admin/customers/index', {
       layout,
       session: req.session,
-      url: req.url
+      url: req.url,
+      customers: customers
     })
   }
 
+  static deleteConsumer = (req, res) => {
+    CustomerModel.delete(req.params.id)
+    this.consumers(req,res)
+  }
+
   static merchants = (req, res) => {
+    let merchants = MerchantModel.list()
     res.render('admin/merchants/index', {
       layout,
       session: req.session,
       url: req.url,
+      merchants: merchants
     })
   }
 
+  static deleteMerchant = (req, res) => {
+    MerchantModel.delete(req.params.id)
+    this.merchants(req,res)
+  }
+
   static products = (req, res) => {
+    let products = ProductModel.list()
+
     res.render('admin/products/index', {
       layout,
       session: req.session,
       url: req.url,
+      products: products
     })
+  }
+
+  static deleteProduct = (req, res) => {
+    ProductModel.delete(req.params.id)
+    this.products(req,res)
   }
 
   static login = (req, res) => {
@@ -55,5 +81,4 @@ export default class AdminRouter {
     req.session.destroy();
     res.redirect('/');
   }
-
 }

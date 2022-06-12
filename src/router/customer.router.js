@@ -141,7 +141,7 @@ export default class customerRouter {
       res.send("Welcome User <a href=\'/logout'>click to logout</a>");
     }
     else {
-      res.render('customer/login', {
+      res.render('customer/login/new', {
         session: req.session,
         shopping_cart: req.session.cart,
         url: req.url,

@@ -7,9 +7,7 @@ const layout = 'layouts/admin'
 export default class AdminRouter {
   static customers = (req, res) => {
     let customers = CustomerModel.list()
-  }
-
-  static customers = (req, res) => {
+    
     res.render('admin/customers/index', {
       layout,
       session: req.session,
@@ -18,9 +16,9 @@ export default class AdminRouter {
     })
   }
 
-  static deleteConsumer = (req, res) => {
+  static deleteCustomer = (req, res) => {
     CustomerModel.delete(req.params.id)
-    this.consumers(req,res)
+    this.customers(req,res)
   }
 
   static merchants = (req, res) => {

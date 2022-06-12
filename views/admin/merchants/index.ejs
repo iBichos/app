@@ -12,11 +12,11 @@
       </tr>
       <% merchants.forEach((merchant) => { %>
         <tr>
-          <td><a href="/admin/merchant/<%= merchant.id %>"><%= merchant.username %></a></td>
-          <td><a href="/admin/merchant/<%= merchant.cnpj %>"><%= merchant.cnpj %></a></td>
-          <td><a href="/admin/merchant/<%= merchant.companyName %>"><%= merchant.companyName %></a></td>
+          <td><%= merchant.username %></td>
+          <td><%= merchant.cnpj %></td>
+          <td><%= merchant.companyName %></td>
           <td>
-            <form method="POST" action="/admin/merchant/<%= merchant.id %>?_method=DELETE">
+            <form method="POST" action="/admin/merchants/<%= merchant.id %>?_method=DELETE">
               <button type="submit">Excluir</button>
             </form>
           </td>

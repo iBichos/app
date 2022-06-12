@@ -65,7 +65,7 @@ app.get('/merchant/orders/:id', MerchantRouter.showOrder)
 app.get('/admin/customers', AdminRouter.customers)
 app.get('/admin/merchants', AdminRouter.merchants)
 app.get('/admin/products', AdminRouter.products)
-app.delete('/admin/consumers/:id', AdminRouter.deleteConsumer)
+app.delete('/admin/customers/:id', AdminRouter.deleteCustomer)
 app.delete('/admin/merchants/:id', AdminRouter.deleteMerchant)
 app.delete('/admin/products/:id', AdminRouter.deleteProduct)
 

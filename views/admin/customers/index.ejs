@@ -1,0 +1,30 @@
+<%- contentFor('content') %>
+
+<section>
+  <h2>Clientes cadastrados</h2>
+  <div class="body">
+    <table>
+      <tr>
+        <th>Cliente</th>
+        <th>email</th>
+        <th>Numero de telefone</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+      </tr>
+      <% customers.forEach((customer) => { %>
+        <tr>
+          <td><%= customer.username %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.phoneNumber %></td>
+          <td><%= customer.address %></td>
+
+          <td>
+            <form method="POST" action="/admin/customers/<%= customer.id %>?_method=DELETE">
+              <button type="submit">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+</section>

@@ -5,6 +5,6 @@
 @import "customer/slideshow.css";
 @import "customer/lateral-menu.css";
 @import "customer/cart.css";
-@import "customer/purchase-items.css";
-@import "customer/purchases.css";
+@import "customer/order-items.css";
+@import "customer/orders.css";
 @import "customer/show.css";

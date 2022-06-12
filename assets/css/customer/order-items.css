@@ -1,0 +1,31 @@
+.order-items {
+  margin-top: 10px;
+  border: 1px solid #DEEAEC;
+  border-radius: 5px;
+}
+
+.order-item {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+}
+
+.order-item > .info {
+  display: flex;
+  align-items: center;
+}
+
+.order-item > .info > .image {
+  width: 50px;
+  height: 50px;
+}
+
+.order-item > .info > .name {
+  margin-left: 10px;
+}
+
+.order-item > .values {
+  text-align: right;
+}

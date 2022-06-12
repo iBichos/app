@@ -98,7 +98,7 @@ export default class customerRouter {
   }
 
   static orders = (req, res) => {
-    let purchases = [
+    let orders = [
       {
         "id": 3231,
         "created_at": "18 de maio de 2022",
@@ -116,23 +116,23 @@ export default class customerRouter {
       }
     ]
   
-    res.render('customer/purchases/index', {
+    res.render('customer/orders/index', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
       url: req.url,
-      purchases: purchases
+      orders: orders
     })
   }
 
-  static orderById = (req, res) => {
+  static showOrder = (req, res) => {
     console.log(req.session)
-    res.render('customer/purchases/index', {
+    res.render('customer/orders/index', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
       url: req.url,
-      purchase: purchase
+      order: order
     })
   }
 

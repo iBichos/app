@@ -6,11 +6,13 @@
 @import "base/buttons.css";
 
 :root {
-  --primary-color: #1e90ff;
-  --light-text-color: #EEE;
-  --background-color: #EEE;
-  --text-color: #111;
-  --border-color: rgba(0, 0, 0, 0.175);
+  --nav-color: #d5f3f9;
+  --text-color: #1c1c1c;
+  --background: #FFF;
+  --second-background: #FFF;
+  --border-color: rgba(0, 0, 0, 20%);
+  --active-item: #3f3f3f;
+  --lateral-menu: #fbfefb;
 }
 
 body {
@@ -20,11 +22,13 @@ body {
 }
 
 .dark-mode {
-  --primary-color: #1e90ff !important;
-  --light-text-color: #EEE !important;
-  --background-color: #111 !important;
-  --border-color: rgba(255, 255, 255, 0.175) !important;
+  --nav-color: #3f3f3f !important;
   --text-color: #EEE !important;
+  --background: #000 !important;
+  --second-background: #3F3F3F !important;
+  --border-color: rgba(255, 255, 255, 20%) !important;
+  --active-item: #FFF;
+  --lateral-menu: #3f3f3f !important;
 }
 
 /* ###### */
@@ -49,6 +53,17 @@ hr.solid {
   border-bottom: 0px;
   padding-bottom: 15px;
   border-color: #88ccf1;
+}
+
+h1{
+  color: var(--text-color);
+}
+h2{
+  color: var(--text-color);
+}
+
+h3{
+  color: var(--text-color);
 }
 
 h4 {

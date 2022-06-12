@@ -2,12 +2,14 @@
 .items {
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
+    background-color: var(--background);
     margin-left: 50px;
     padding-top: 30px;
   }
   
   .item {
+    background-color: var(--second-background);
+    color: var(--text-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     border-radius: 5px;
@@ -15,7 +17,6 @@
     margin-right: 15px;
     width: 230px;
     height: 300px;
-    
   }
   
   .image-container {

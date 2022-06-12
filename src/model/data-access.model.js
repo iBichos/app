@@ -74,7 +74,7 @@ export default class DataAccessModel {
 
   static delete(id) {
     const table = this.loadTable()
-    const index = table.data.findIndex(element => element.id === id)
+    const index = table.data.findIndex(element => element.id == id)
 
     if (index == -1) return
 
@@ -85,7 +85,7 @@ export default class DataAccessModel {
 
   static update(id, params) {
     const table = this.loadTable()
-    const index = table.data.findIndex(element => element.id === id)
+    const index = table.data.findIndex(element => element.id == id)
 
     if (index === -1) return
 

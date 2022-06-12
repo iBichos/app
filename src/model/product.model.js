@@ -25,4 +25,8 @@ export default class ProductModel extends DataAccessModel {
   merchant() {
     return MerchantModel.find(this.merchant_id)
   }
+
+  price() {
+    return `R$ ${this.price_cents / 100}`
+  }
 }

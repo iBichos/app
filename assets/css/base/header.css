@@ -5,19 +5,14 @@
   align-items: center;
   padding: 20px 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
-  background-color: #d5f3f9;
-  color: #808080;
+  background-color: var(--nav-color);
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
 .logo{
   max-width: 16%;
   height: auto;
-}
-
-#navbar-logo:hover {
-  background-color: #d5f3f9;
-  color: #3f3f3f;
 }
 
 #navbar-search[type=text] {
@@ -59,7 +54,7 @@
 
 .navbar-link {
   text-decoration: none;
-  color: inherit;
+  color: var(--text-color);
   transition: all 0.3s ease 0s;
   font-size: 1.3rem;
 }
@@ -99,7 +94,7 @@
   border-radius: 10px;
   border-color: #96e072;
   background-color: #96e072;
-  color: #fffdf9;
+  color: var(--text-color);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   -webkit-transition-property: box-shadow, transform;

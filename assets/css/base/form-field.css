@@ -3,7 +3,7 @@ form .field input:valid ~ label{
   top: 0%;
   font-size: 1.3rem;
   color: #3F3F3F;
-  background: #fff;
+  background: var(--background);
   transform: translateY(-50%);
 }
 form .content{

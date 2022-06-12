@@ -13,10 +13,12 @@
   
   .slideshow > h1 {
     font-size: 3.5rem;
+    color: black;
     padding-bottom: 50px;
   }
   
   .slideshow > .subtitle {
+    color: black;
     font-size: 1.3rem;
     max-width: 50%;
     padding-bottom: 180px;

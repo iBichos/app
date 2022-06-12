@@ -1,5 +1,5 @@
 import DataAccessModel from './data-access.model.js'
-import CustomerModel from './costumer.model.js'
+import CustomerModel from './customer.model.js'
 
 export default class OrderModel extends DataAccessModel {
   static tableName = 'orders'

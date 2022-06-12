@@ -2,6 +2,7 @@ main {
     display: flex;
     height: 80%;
     justify-content: center;
+    background-color: var(--background-color);
   }
   
 #container {

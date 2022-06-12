@@ -3,13 +3,16 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/css/customer.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    <script src="/js/font_size_increase.js"> </script>
+    <script src="/js/dark_mode_toggle.js"> </script>
+
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon.png">
     <title>iBichos</title>
   </head>
 
   <body>
     <header id="navbar">
-      <img src="icons/logo.png" class="logo">
+      <img src="/icons/logo.png" class="logo">
       <input id="navbar-search" type="text">
       <nav>
         <ul>
@@ -17,8 +20,11 @@
           <li class="navbar-item <% if(url == '/products') { %>active<% } %>"><a class="navbar-link" href="/products">Produtos</a></li>
         </ul>
       </nav>
-      
-      <div id="navbar-customer-area">
+      <img src="/icons/minus.png" width="24" height="24" class="decrease_font"></img>
+      <img src="/icons/plus.png" width="24" height="24" class="increase_font"></img>
+      <img src="/icons/lamp.png" width="32" height="32" class='dark_toggle'></img>
+
+      <div id="navbar-consumer-area">
         <a href="/shopping_cart">
           <div id="navbar-cart" class="">
             <img src="/icons/shopping-cart.png" width="32" height="32" alt="shopping-cart">
@@ -42,10 +48,9 @@
             </div>
           </div>
         <% } else { %>
-          <a href="/login" class="navbar-button">Login</a>
+          <a href="/login" class="button-green-small">Login</a>
         <% } %>
       </div>       
-      
     </header>
 
     <%- content %>

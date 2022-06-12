@@ -65,6 +65,7 @@
 
 
 #navbar-cart {
+  height: 25px;
   display: flex;
   padding: 8px;
   margin-left: 5px;

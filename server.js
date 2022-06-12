@@ -4,7 +4,7 @@ import sessions from 'express-session';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 
-import ConsumerRouter from './src/router/consumer.router.js';
+import CustomerRouter from './src/router/customer.router.js';
 import MerchantRouter from './src/router/merchant.router.js';
 import AdminRouter from './src/router/admin.router.js'
 import { isCustomer, isSignedIn } from "./src/service/session-validation.service.js";
@@ -30,19 +30,19 @@ app.use(bodyParser.urlencoded())
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/', ConsumerRouter.home)
-app.get('/products', ConsumerRouter.products)
-app.get('/products/:id', ConsumerRouter.productById)
+app.get('/', CustomerRouter.home)
+app.get('/products', CustomerRouter.products)
+app.get('/products/:id', CustomerRouter.productById)
 
-app.get('/shopping_cart', ConsumerRouter.cart)
-app.get('/add_to_cart/:product_id', ConsumerRouter.addToCart)
+app.get('/shopping_cart', CustomerRouter.cart)
+app.get('/add_to_cart/:product_id', CustomerRouter.addToCart)
 
-app.get('/profile', isCustomer, isSignedIn, ConsumerRouter.profile)
-app.get('/purchases', ConsumerRouter.orders)
-app.get('/purchases/:id', ConsumerRouter.orderById)
-app.get('/login', ConsumerRouter.login)
-app.post('/login', ConsumerRouter.doLogin)
-app.get('/logout', ConsumerRouter.logout);
+app.get('/profile', isCustomer, isSignedIn, CustomerRouter.profile)
+app.get('/purchases', CustomerRouter.orders)
+app.get('/purchases/:id', CustomerRouter.orderById)
+app.get('/login', CustomerRouter.login)
+app.post('/login', CustomerRouter.doLogin)
+app.get('/logout', CustomerRouter.logout);
 
 app.get('/merchant/products', MerchantRouter.products)
 app.get('/merchant/products/:id/edit', MerchantRouter.editProduct)
@@ -60,7 +60,7 @@ app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', MerchantRouter.logout)
 app.get('/merchant/orders', MerchantRouter.orders)
 
-app.get('/admin/consumers', AdminRouter.consumers)
+app.get('/admin/customers', AdminRouter.customers)
 app.get('/admin/merchants', AdminRouter.merchants)
 app.get('/admin/products', AdminRouter.products)
 app.get('/admin/login', AdminRouter.login)

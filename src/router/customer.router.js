@@ -1,14 +1,14 @@
 import ProductModel from '../model/product.model.js'
 import CustomerModel from "../model/customer.model.js";
 
-const layout = 'layouts/consumer'
+const layout = 'layouts/customer'
 
 
-export default class ConsumerRouter { 
+export default class customerRouter { 
   static home = (request, response) => {
     let products = ProductModel.list().slice(0, 4)
 
-    response.render('consumer/home/index', {
+    response.render('customer/home/index', {
       layout,
       products: products,
       session: request.session,
@@ -20,7 +20,7 @@ export default class ConsumerRouter {
   static products = (request, response) => {
     let products = ProductModel.list()
 
-    response.render('consumer/products/index', {
+    response.render('customer/products/index', {
       layout: layout,
       products: products,
       session: request.session,
@@ -33,7 +33,7 @@ export default class ConsumerRouter {
     // find product with req.params.id
     let product = ProductModel.find(req.params.id)
 
-    res.render('consumer/products/show', {
+    res.render('customer/products/show', {
       layout: layout,
       product: product,
       url: req.url,
@@ -56,7 +56,7 @@ export default class ConsumerRouter {
       shopping_cart = []
     }
   
-    res.render('consumer/shopping_cart/index', {
+    res.render('customer/shopping_cart/index', {
       layout: layout,
       session: req.session,
       shopping_cart: shopping_cart,
@@ -89,7 +89,7 @@ export default class ConsumerRouter {
 
   static profile = (req, res) => {
 
-    res.render('consumer/profile/edit', {
+    res.render('customer/profile/edit', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
@@ -116,7 +116,7 @@ export default class ConsumerRouter {
       }
     ]
   
-    res.render('consumer/purchases/index', {
+    res.render('customer/purchases/index', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
@@ -127,7 +127,7 @@ export default class ConsumerRouter {
 
   static orderById = (req, res) => {
     console.log(req.session)
-    res.render('consumer/purchases/index', {
+    res.render('customer/purchases/index', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,

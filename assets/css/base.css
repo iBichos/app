@@ -8,7 +8,7 @@
 :root {
   --nav-color: #d5f3f9;
   --text-color: #1c1c1c;
-  --background: #FFF;
+  --background-color: #FFF;
   --second-background: #FFF;
   --border-color: rgba(0, 0, 0, 20%);
   --active-item: #3f3f3f;
@@ -24,14 +24,16 @@ body {
 .dark-mode {
   --nav-color: #3f3f3f !important;
   --text-color: #EEE !important;
-  --background: #000 !important;
+  --background-color: #000 !important;
   --second-background: #3F3F3F !important;
   --border-color: rgba(255, 255, 255, 20%) !important;
-  --active-item: #FFF;
+  --active-item: #FFF !important;
   --lateral-menu: #3f3f3f !important;
 }
 
-/* ###### */
+main {
+  background-color: var(--background-color);
+}
 
 * {
   padding: 0;
@@ -44,8 +46,6 @@ a {
   text-decoration: none;
 }
 
-
-/* Solid border */
 hr.solid {
   border-top: 2px solid #bbb;
   border-left: 0px;
@@ -55,9 +55,14 @@ hr.solid {
   border-color: #88ccf1;
 }
 
+p{
+  color: var(--text-color);
+}
+
 h1{
   color: var(--text-color);
 }
+
 h2{
   color: var(--text-color);
 }
@@ -67,12 +72,22 @@ h3{
 }
 
 h4 {
-    list-style-type: none;
-    padding-bottom: 10px;
-    padding-top: 10px;
+  list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 h4:hover {
   color: #E82A2A;
   transition-duration: 0.3s;
+}
+
+td{
+color: var(--text-color);
+}
+
+label{
+  color: var(--text-color); 
+  font-size: 17px;
+  padding-right: 30px;
 }

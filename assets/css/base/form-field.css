@@ -3,7 +3,7 @@ form .field input:valid ~ label{
   top: 0%;
   font-size: 16px;
   color: #3F3F3F;
-  background: var(--background);
+  background: var(--background-color);
   transform: translateY(-50%);
 }
 form .content{
@@ -35,3 +35,4 @@ form .content .pass-link{
   align-items: center;
   color: gray;
 }
+

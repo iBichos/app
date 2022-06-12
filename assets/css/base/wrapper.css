@@ -5,6 +5,7 @@
   margin-left: 80px;
   font-size: 50px;
   margin-bottom: -50px;
+  color: var(--text-color);
  }
 
 .container-wrapper {
@@ -14,17 +15,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: var(---second-background);
 }
 
 .wrapper{
     width: 900px;
-    background: var(---second-background);
+    background-color: var(---second-background);
     border-radius: 15px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.2);
     align-items: center;
   }
   .wrapper form{
     padding: 10px 30px 50px 30px;
+    background-color: var(---second-background);
   }
   .wrapper form .field{
     height: 50px;

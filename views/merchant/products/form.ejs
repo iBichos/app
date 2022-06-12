@@ -4,31 +4,31 @@
   <h1> Informações do produto </h1>
   <div class = "container-wrapper">
     <div class="wrapper">
-      <form action="#">
+      <form action="/merchant/products/<%= product.id %>?_method=<%= method %>" method="POST">
         <div class="form-row">
             <label for="avatar">Escolha uma foto para o produto:</label>
             <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> 
         </div>
         <div class="form-row">
           <div class="field">
-            <input type="text" required>
+            <input type="text" required value="<%= product.name %>" name="name">
             <label>Nome</label>
           </div>
           <div class="field">
-            <input type="text" required>
+            <input type="number" required value="<%= product.price_cents / 100 %>" name="price_cents" min="0">
             <label>Preço</label>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
-            <input type="text-area" required>
+            <input type="text-area" required value="<%= product.description %>" name="description">
             <label>Descrição</label>
           </div>
         </div>
         
-        <div class="button-green">
+        <button type="submit" class="button-green">
           Salvar
-        </div>
+        </button>
       </form>
     </div>
   </div>

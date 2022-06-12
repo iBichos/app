@@ -3,7 +3,7 @@
   margin-top: 60px;
   margin-right: 80px;
   margin-left: 80px;
-  font-size: 50px;
+  font-size: 3rem;
   margin-bottom: -50px;
   color: var(--text-color);
  }
@@ -39,7 +39,7 @@
     height: 100%;
     width: 90%;
     outline: none;
-    font-size: 17px;
+    font-size: 1.3rem;
     padding-left: 20px;
     border: 1px solid lightgrey;
     border-radius: 25px;
@@ -55,7 +55,7 @@
     left: 20px;
     color: #999999;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 1.3rem;
     pointer-events: none;
     transform: translateY(-50%);
     transition: all 0.3s ease;

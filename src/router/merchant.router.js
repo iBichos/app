@@ -12,54 +12,51 @@ export default class MerchantRouter {
   }
 
   static products = (req, res) => {
+    let products = ProductModel.list()
+
     res.render('merchant/products/index', {
       layout,
       session: req.session,
-      url: req.url
+      url: req.url,
+      products: products
     })
   }
 
-  static productById = (req, res) => {
-    let product = ProductModel.find(req.params.id)
+  static newProduct = (req, res) => {
+    let product = new ProductModel({})
 
     res.render('merchant/products/form', {
       layout,
       session: req.session,
       url: req.url,
-      product: product
-    })
-  }
-
-  static newProduct = (req, res) => {
-
-    res.render('merchant/products/form', {
-      layout,
-      session: req.session,
-      url: req.url
+      product: product,
+      method: 'POST'
     })
   }
 
   static editProduct = (req, res) => {
-
+    let product = ProductModel.find(req.params.id)
     res.render('merchant/products/form', {
       layout,
       session: req.session,
-      url: req.url
+      url: req.url,
+      product: product,
+      method: 'PUT'
     })
   }
 
   static updateProduct = (req, res) => {
-    ProductModel.update(req.body.id, req.body)
-    this.editProduct(req,res)
+    ProductModel.update(req.params.id, req.body)
+    this.products(req,res)
   }
 
   static createProduct = (req, res) => {
     ProductModel.create(req.body)
-    this.editProduct(req,res)
+    this.products(req,res)
   }
 
   static deleteProduct = (req, res) => {
-    ProductModel.delete(req.body.id)
+    ProductModel.delete(req.params.id)
     this.products(req,res)
   }
 

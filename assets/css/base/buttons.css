@@ -1,5 +1,5 @@
 .button-green{
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
     background: #96e072;
     width: 160px;
@@ -7,7 +7,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #1c1c1;
+    color: #1c1c1c;
     cursor: pointer;
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
   }
   
   .button-red{
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
     background: #F18B7E;
     width: 160px;
@@ -32,7 +32,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #1c1c1;
+    color: #1c1c1c;
     cursor: pointer;
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -49,7 +49,7 @@
   }
   
   .button-blue{
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
     background: #88ccf1;
     width: 160px;
@@ -57,7 +57,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #1c1c1;
+    color: #1c1c1c;
     cursor: pointer;
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,7 @@
   
 
   .button-green-medium{
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
     background: #96e072;
     width: 100px;
@@ -91,7 +91,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #1c1c1;
+    color: #1c1c1c;
     cursor: pointer;
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -108,7 +108,7 @@
   }
 
   .button-add{
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
     background: #96e072;
     width: 150px;
@@ -116,7 +116,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #1c1c1;
+    color: #1c1c1c;
     cursor: pointer;
     border-radius:20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

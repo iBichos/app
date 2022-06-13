@@ -1,64 +1,86 @@
 [
   {
-    "id": 3,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "id": 1,
+    "name": "Macaco Chalesco Brinquedo Para Cães Pelúcia Marrom",
+    "price_cents": 3100,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1531491431642.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Brinquedo de Pelúcia Chalesco Crocodilo",
+    "price_cents": 2799,
+    "merchant_id": 1,
+    "image_url": "https://static.petz.com.br/fotos/1457992186939.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Brinquedo de Pelúcia Chalesco Cachorro",
+    "price_cents": 2499,
+    "merchant_id": 1,
+    "image_url": "https://static.petz.com.br/fotos/1458590592588.jpg"
   },
   {
     "id": 4,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Ração Royal Canin Maxi - Cães Adultos - 15kg",
+    "price_cents": 34489,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1574869316149.jpg"
   },
   {
     "id": 5,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Ração Royal Canin Medium - Cães Adultos",
+    "price_cents": 9899,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1574869059873.jpg"
   },
   {
     "id": 6,
-    "name": "Golden 15 kfg",
+    "name": "Golden 15 kg",
     "price_cents": 12999,
     "merchant_id": 1,
     "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
   },
   {
     "id": 7,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Ração Úmida Hills Prescription Diet A/D Cuidados Críticos para Cães e Gatos - 156g",
+    "price_cents": 3399,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1455285594859.jpg"
   },
   {
     "id": 8,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Ração Hills Science Diet para Cães Adultos de Grande Porte Sabor Frango 12kg",
+    "price_cents": 36999,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1613058542544.jpg"
   },
   {
     "id": 9,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Dogvilla Ferplast Casa Para Cães",
+    "price_cents": 122999,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/10037100000162-1.jpg"
   },
   {
     "id": 10,
-    "name": "Golden 15 kg",
-    "price_cents": 12999,
+    "name": "Apoquel Zoetis Dermatológico para Cães",
+    "price_cents": 21249,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1474404553051.jpg"
   },
   {
     "id": 11,
-    "name": "produtinho gente boa",
-    "price_cents": "123132",
-    "description": "description"
+    "name": "Tapete Higiênico Petz para Cães Slim 30un",
+    "price_cents": 8699,
+    "merchant_id": 1,
+    "image_url": "https://static.petz.com.br/fotos/1621452474335.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Tapete Higiênico Petz para Cães Superabsorvente 30 Unidades",
+    "price_cents": 8799,
+    "merchant_id": 1,
+    "image_url": "https://static.petz.com.br/fotos/1621452593731.jpg"
   }
 ]

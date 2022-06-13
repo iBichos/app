@@ -47,6 +47,10 @@ main {
     font-size: 2rem;
   }
   
+  #product-description {
+    margin-bottom: 1rem;
+  }
+
   #edit-button {
     margin-top: 3rem;
     padding: 1.5rem;

@@ -20,7 +20,7 @@
                 </header>
                 
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
-                <p><%= product.description %></p>
+                <p id="product-description"><%= product.description %></p>
                 <button class="button-add" id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
             </div>
         </section>

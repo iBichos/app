@@ -4,46 +4,46 @@
   <h1> Meu perfil </h1>
   <div class = "container-wrapper">
   <div class="wrapper">
-    <form action="#">
+    <form action="/merchant/profile/?_method=PUT" method="POST">
       <div class="form-row">
         <div class="field">
-           <input type="text" required>
+           <input type="text" required name="username" value="<%= merchant.username %>">
            <label>Usuário</label>
         </div>
      </div>
        <div class="form-row">
           <div class="field">
-             <input type="text" required>
+             <input type="text" required name="companyName" value="<%= merchant.companyName %>">
              <label>Nome da empresa</label>
           </div>
           <div class="field">
-             <input type="text" required>
+             <input type="text" required name="cnpj" value="<%= merchant.cnpj %>">
              <label>CNPJ</label>
           </div>
        </div>
        <div class="form-row">
           <div class="field">
-             <input type="text" required>
+             <input type="text" required name="address" value="<%= merchant.address %>">
              <label>Endereço</label>
           </div>
           <div class="field">
-             <input type="text" required>
+             <input type="text" required name="phoneNumber" value="<%= merchant.phoneNumber %>">
              <label>Telefone</label>
           </div>
        </div>
        <div class="form-row">
        <div class="field">
-          <input type="email" required>
+          <input type="email" required name="email" value="<%= merchant.email %>">
           <label>E-mail</label>
        </div>
        <div class="field">
-          <input type="password" required>
+          <input type="password" name="password">
           <label>Senha</label>
        </div>
     </div>
-    <div class="button-green">
+    <button type='submit' class="button-green">
        Salvar
-    </div>
+    </button>
     </form>
     </div>
   </div>

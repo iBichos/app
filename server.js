@@ -58,6 +58,7 @@ app.delete('/merchant/products/:id', MerchantRouter.deleteProduct)
 // curl -d '{"id": 11}' -H "Content-Type: application/json" -X DELETE http://localhost:3000/merchant/products
 
 app.get('/merchant/profile', MerchantRouter.profile)
+app.put('/merchant/profile', MerchantRouter.updateProfile)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', MerchantRouter.logout)

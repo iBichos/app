@@ -1,15 +1,26 @@
 import ProductModel from "../model/product.model.js";
 import OrderModel from "../model/order.model.js";
+import MerchantModel from "../model/merchant.model.js";
 
 const layout = 'layouts/merchant'
 
 export default class MerchantRouter {
   static profile = (request, response) => {
+    let merchant = MerchantModel.find(1)
+
     response.render('merchant/profile/edit', {
       layout,
       session: request.session,
-      url: request.url
+      url: request.url,
+      merchant: merchant
     })
+  }
+
+  static updateProfile = (req, res) => {
+    let merchant = MerchantModel.find(1)
+    MerchantModel.update(merchant.id, req.body)
+
+    this.profile(req, res)
   }
 
   static products = (req, res) => {

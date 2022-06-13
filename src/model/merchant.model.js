@@ -22,7 +22,7 @@ export default class MerchantModel extends DataAccessModel {
     this.password = params.password
     this.cnpj = params.cnpj
     this.phoneNumber = params.phoneNumber
-    this.adress = params.adress
+    this.address = params.address
     this.companyName = params.companyName
     this.ownerName = params.ownerName
   }

@@ -8,6 +8,7 @@ import CustomerRouter from './src/router/customer.router.js';
 import MerchantRouter from './src/router/merchant.router.js';
 import AdminRouter from './src/router/admin.router.js'
 import { isCustomer, isSignedIn } from "./src/service/session-validation.service.js";
+import { priceCentsMask } from './src/service/product-validation.service.js';
 
 const app = express();
 const port = 3000
@@ -51,7 +52,7 @@ app.get('/logout', CustomerRouter.logout);
 app.get('/merchant/products', MerchantRouter.products)
 app.get('/merchant/products/:id/edit', MerchantRouter.editProduct)
 app.get('/merchant/products/new', MerchantRouter.newProduct)
-app.post('/merchant/products', MerchantRouter.createProduct)
+app.post('/merchant/products', priceCentsMask, MerchantRouter.createProduct)
 // curl -d '{"name": "Golden 78 kg","price_cents": 18999,"merchant_id": 1,"image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/merchant/products
 app.put('/merchant/products/:id', MerchantRouter.updateProduct)
 // curl -d '{"name": "Golden 78 kg","price_cents": 18999,"merchant_id": 1,"image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"}' -H "Content-Type: application/json" -X PATCH http://localhost:3000/merchant/products

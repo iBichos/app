@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.order-container  a {
+  color: var(--text-color)
+}
+
 .orders {
   display: flex;
   flex-direction: column;

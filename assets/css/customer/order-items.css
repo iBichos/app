@@ -9,11 +9,13 @@
   align-items: center;
   justify-content: space-between;
   display: flex;
+  color: var(--text-color);
   padding: 10px;
 }
 
 .order-item > .info {
   display: flex;
+  color: var(--text-color);
   align-items: center;
 }
 
@@ -24,8 +26,16 @@
 
 .order-item > .info > .name {
   margin-left: 10px;
+  color: var(--text-color);
 }
 
 .order-item > .values {
   text-align: right;
+  color: var(--text-color);
+  
+}
+
+
+.product_price, .product_info, .product_qtd {
+  color: var(--text-color)
 }

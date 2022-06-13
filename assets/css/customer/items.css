@@ -15,14 +15,16 @@
   border-radius: 5px;
   margin-bottom: 25px;
   margin-right: 15px;
-  width: 230px;
-  height: 300px;
+  width: 22ch;
+  height: 22em;
   font-size: 1.2rem;
+  display: flex;
+  flex-flow: column;
 }
 
 .image-container {
-  padding-top: 20px;
-  height: 200px;
+  padding-top: 5%;
+  height: 50%;
 }
 
 .image {
@@ -30,5 +32,12 @@
 }
 
 .item-details {
+  height: 45%;
   padding-bottom: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.item-details h4 {
 }

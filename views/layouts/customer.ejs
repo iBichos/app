@@ -98,6 +98,20 @@
               ul.style.display = 'block'
           }
       }
+
+      window.addEventListener('resize', function(event) {
+        const box = document.getElementById('search-field').getBoundingClientRect();
+        const dropdown = document.getElementById('suggestion-list');
+        dropdown.style.top = box.bottom + 'px';
+        dropdown.style.left = box.left + 'px';
+        dropdown.style.width = (box.width - 28) + 'px';
+      }, true);
+
+      const box = document.getElementById('search-field').getBoundingClientRect();
+      const dropdown = document.getElementById('suggestion-list');
+      dropdown.style.top = box.bottom + 'px';
+      dropdown.style.left = box.left + 'px';
+      dropdown.style.width = (box.width - 28) + 'px';
     </script>
   </body>
 </html>

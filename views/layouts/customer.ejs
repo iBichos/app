@@ -99,19 +99,23 @@
           }
       }
 
-      window.addEventListener('resize', function(event) {
+      function resizeList() {
         const box = document.getElementById('search-field').getBoundingClientRect();
         const dropdown = document.getElementById('suggestion-list');
         dropdown.style.top = box.bottom + 'px';
         dropdown.style.left = box.left + 'px';
-        dropdown.style.width = (box.width - 28) + 'px';
+        dropdown.style.width = (box.width - 27) + 'px';
+      }
+
+      window.addEventListener('resize', function(event) {
+        resizeList();
       }, true);
 
-      const box = document.getElementById('search-field').getBoundingClientRect();
-      const dropdown = document.getElementById('suggestion-list');
-      dropdown.style.top = box.bottom + 'px';
-      dropdown.style.left = box.left + 'px';
-      dropdown.style.width = (box.width - 28) + 'px';
+      window.addEventListener('click', function(event) {
+        resizeList();
+      }, true);
+
+      resizeList();
     </script>
   </body>
 </html>

@@ -7,17 +7,20 @@
             </div>
         </section>
         <section>
-            <div class="row">
-                <header>
-                    <h2 id="product-name"><%= product.name %></h2>
-                    <div id="rating">
-                        <img src="/icons/star.png" width="24" height="24">
-                        <img src="/icons/star.png" width="24" height="24">
-                        <img src="/icons/star.png" width="24" height="24">
-                        <img src="/icons/star.png" width="24" height="24">
-                        <img src="/icons/partial-star.png" width="24" height="24">
-                    </div>
-                </header>
+            <div class="row" id="product-details">
+                <p id="product-name"><%= product.name %></p>
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Incrível - 5 estrelas"></label>
+                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Muito bom - 4.5 estrelas"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Muito bom - 4 estrelas"></label>
+                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="OK - 3.5 estrelas"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="OK - 3 estrelas"></label>
+                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Aceitável - 2.5 estrelas"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Aceitável - 2 estrelas"></label>
+                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Ruim - 1.5 estrelas"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Ruim - 1 star"></label>
+                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Péssimo - 0.5 estrelas"></label>
+                </fieldset>
                 
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p id="product-description"><%= product.description %></p>

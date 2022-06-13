@@ -4,40 +4,40 @@
   <h1> Meu perfil </h1>
   <div class = "container-wrapper">
     <div class="wrapper">
-      <form action="#">
+      <form action="/profile/?_method=PUT" method="POST">
         <div class="form-row">
           <div class="field">
-            <input type="text" value="<%= session.customer.username %>" required>
+            <input type="text" value="<%= session.customer.username %>" required name="username">
             <label>Nome</label>
           </div>
           <div class="field">
-            <input type="text" required>
+            <input type="text" required value="<%= session.customer.cpf %>" name="cpf">
             <label>CPF</label>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
-            <input type="text" required>
+            <input type="text" required value="<%= session.customer.address %>" name="address">
             <label>Endereço</label>
           </div>
           <div class="field">
-            <input type="text" required>
+            <input type="text" required value="<%= session.customer.phoneNumber %>" name="phoneNumber">
             <label>Telefone</label>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
-              <input type="password" required>
+              <input type="email" required value="<%= session.customer.email %>" name="email">
               <label>E-mail</label>
           </div>
           <div class="field">
-              <input type="password" required>
+              <input type="password" name="password" value="<%= session.customer.password %>">
               <label>Senha</label>
           </div>
         </div>
-        <div class="button-green">
+        <button type="submit" class="button-green">
           Salvar
-        </div>
+        </button>
       </form>
     </div>
   </div>

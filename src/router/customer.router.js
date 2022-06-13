@@ -99,6 +99,14 @@ export default class customerRouter {
     })
   }
 
+  static updateProfile = (req, res) => {
+    CustomerModel.update(req.session.customer.id, req.body)
+
+    req.session.customer = CustomerModel.find(req.session.customer.id)
+
+    this.profile(req, res)
+  }
+
   static orders = (req, res) => {
     let orders = OrderModel.list()
   

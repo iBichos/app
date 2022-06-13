@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('html').style.fontSize = `${nextValue}px`
     
     localStorage.setItem('font-size', `${nextValue}px`)
+    const box = document.getElementById('search-field').getBoundingClientRect();
+    const dropdown = document.getElementById('suggestion-list');
+    dropdown.style.top = box.bottom + 'px';
+    dropdown.style.left = box.left + 'px';
+    dropdown.style.width = (box.width - 27) + 'px';
   })
   
   document.querySelector('.decrease_font').addEventListener( 'click', () => {
@@ -17,5 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('html').style.fontSize = `${nextValue}px`
   
     localStorage.setItem('font-size', `${nextValue}px`)
+    const box = document.getElementById('search-field').getBoundingClientRect();
+    const dropdown = document.getElementById('suggestion-list');
+    dropdown.style.top = box.bottom + 'px';
+    dropdown.style.left = box.left + 'px';
+    dropdown.style.width = (box.width - 27) + 'px';
   })
 })

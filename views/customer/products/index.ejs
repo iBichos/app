@@ -4,17 +4,18 @@
   <div class='lateral-menu'>
     <h2>Categorias</h2>
     <ul>
-      <li><a href="#">Coleiras</a></li>
-      <li><a href="#">Brinquedos</a></li>
-      <li><a href="#">Rações</a></li>
+      <% categories.forEach((category) => { %>
+        <li><a href="?category=<%= category.id %>"><%= category.name %></a></li>
+      <% }) %>
     </ul>
 
     <hr class="solid">
     
     <h2>Bichos</h2>
     <ul>
-      <li><a href="#">Cachorro</a></li>
-      <li><a href="#">Gato</a></li>
+      <% animalTypes.forEach(( animalType) => { %>
+        <li><a href="?animalType=<%= animalType.id %>"><%= animalType.name %></a></li>
+      <% }) %>
     </ul>
 
     <hr class="solid">
@@ -29,10 +30,10 @@
 
     <h2>Faixa de preço</h2>
     <ul>
-      <li><a href="#">R$0,00 a R$25,00</a></li>
-      <li><a href="#">R$26,00 a R$50,00</a></li>
-      <li><a href="#">R$51,00 a R$100,00</a></li>
-      <li><a href="#">Acima de R$100,00</a></li>
+      <li><a href="?fromPrice=0&belowPrice=2500">R$0,00 a R$25,00</a></li>
+      <li><a href="?fromPrice=2500&belowPrice=5000">R$25,00 a R$50,00</a></li>
+      <li><a href="?fromPrice=5000&belowPrice=10000">R$50,00 a R$100,00</a></li>
+      <li><a href="?fromPrice=10000">Acima de R$100,00</a></li>
     </ul>
 
   </div>

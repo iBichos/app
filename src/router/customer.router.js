@@ -1,7 +1,8 @@
 import ProductModel from '../model/product.model.js'
 import CustomerModel from "../model/customer.model.js";
 import OrderModel from "../model/order.model.js";
-import DataAccessModel from '../model/data-access.model.js';
+import CategoryModel from '../model/category.model.js';
+import AnimalTypeModel from '../model/animal-type.model.js';
 
 const layout = 'layouts/customer'
 
@@ -21,10 +22,34 @@ export default class customerRouter {
   
   static products = (request, response) => {
     let products = ProductModel.list()
+    let categories = CategoryModel.list()
+    let animalTypes = AnimalTypeModel.list()
+    const query = request.query
+
+    if (query.category) {
+      products = products.filter(product => product.categories !== undefined)
+      products = products.filter(product => product.categories.includes(JSON.parse(query.category)) === true)
+    }
+
+    if (query.animalType) {
+      products = products.filter(product => product.animalTypes !== undefined)
+      products = products.filter(product => product.animalTypes.includes(JSON.parse(query.animalType)) === true)
+    }
+
+    if (query.fromPrice) {
+      products = products.filter(product => product.price_cents >= (JSON.parse(query.fromPrice)) === true)
+    }
+
+    if (query.belowPrice) {
+      products = products.filter(product => product.price_cents <= (JSON.parse(query.belowPrice)) === true)
+    }
+
     request.session.products = products
     response.render('customer/products/index', {
       layout: layout,
       products: products,
+      categories: categories,
+      animalTypes: animalTypes,
       session: request.session,
       url: request.url,
       shopping_cart: request.session.cart

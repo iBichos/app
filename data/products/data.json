@@ -5,7 +5,13 @@
     "description": "Diversão garantida para seu cão.",
     "price_cents": 3100,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1531491431642.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1531491431642.jpg",
+    "categories": [
+      1
+    ],
+    "animalTypes": [
+      1, 2
+    ]
   },
   {
     "id": 2,
@@ -13,7 +19,13 @@
     "description": "Ideal para os pets de todos os portes e idades.",
     "price_cents": 2799,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1457992186939.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1457992186939.jpg",
+    "categories": [
+      1
+    ],
+    "animalTypes": [
+      1, 2
+    ]
   },
   {
     "id": 3,
@@ -21,7 +33,13 @@
     "description": "Mantém seu cão livre de estresses.",
     "price_cents": 2499,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1458590592588.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1458590592588.jpg",
+    "categories": [
+      1
+    ],
+    "animalTypes": [
+      1, 2
+    ]
   },
   {
     "id": 4,
@@ -29,7 +47,13 @@
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 34489,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1574869316149.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1574869316149.jpg",
+    "categories": [
+     2
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 5,
@@ -37,7 +61,13 @@
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 9899,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1574869059873.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1574869059873.jpg",
+    "categories": [
+     2
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 6,
@@ -45,7 +75,13 @@
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 12999,
     "merchant_id": 1,
-    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
+    "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg",
+    "categories": [
+     2
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 7,
@@ -53,7 +89,13 @@
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 3399,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1455285594859.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1455285594859.jpg",
+    "categories": [
+     2
+    ],
+    "animalTypes": [
+      1, 2
+    ]
   },
   {
     "id": 8,
@@ -61,7 +103,13 @@
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 36999,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1613058542544.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1613058542544.jpg",
+    "categories": [
+     2
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 9,
@@ -69,7 +117,13 @@
     "description": "Conta com abertura lateral que se torna uma rampa.",
     "price_cents": 122999,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/10037100000162-1.jpg"
+    "image_url": "https://static.petz.com.br/fotos/10037100000162-1.jpg",
+    "categories": [
+     1
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 10,
@@ -77,7 +131,13 @@
     "description": "Alívio total da coceira em 24 horas.",
     "price_cents": 21249,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1474404553051.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1474404553051.jpg",
+    "categories": [
+     3, 4
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 11,
@@ -85,7 +145,13 @@
     "description": "Adesivo no verso dos tapetes para melhor fixação, tanto no chão, quanto na parede.",
     "price_cents": 8699,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1621452474335.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1621452474335.jpg",
+    "categories": [
+      4
+    ],
+    "animalTypes": [
+      1
+    ]
   },
   {
     "id": 12,
@@ -93,6 +159,12 @@
     "description": "Adesivo no verso dos tapetes para melhor fixação, tanto no chão, quanto na parede.",
     "price_cents": 8799,
     "merchant_id": 1,
-    "image_url": "https://static.petz.com.br/fotos/1621452593731.jpg"
+    "image_url": "https://static.petz.com.br/fotos/1621452593731.jpg",
+    "categories": [
+      4
+    ],
+    "animalTypes": [
+      1
+    ]
   }
 ]

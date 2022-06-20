@@ -3,6 +3,7 @@ import CustomerModel from "../model/customer.model.js";
 import OrderModel from "../model/order.model.js";
 import CategoryModel from '../model/category.model.js';
 import AnimalTypeModel from '../model/animal-type.model.js';
+import MerchantModel from '../model/merchant.model.js';
 
 const layout = 'layouts/customer'
 
@@ -24,6 +25,7 @@ export default class customerRouter {
     let products = ProductModel.list()
     let categories = CategoryModel.list()
     let animalTypes = AnimalTypeModel.list()
+    let merchants = MerchantModel.list()
     const query = request.query
 
     if (query.category) {
@@ -44,12 +46,17 @@ export default class customerRouter {
       products = products.filter(product => product.price_cents <= (JSON.parse(query.belowPrice)) === true)
     }
 
+    if (query.merchant) {
+      products = products.filter(product => product.merchant_id === (JSON.parse(query.merchant)))
+    }
+
     request.session.products = products
     response.render('customer/products/index', {
       layout: layout,
       products: products,
       categories: categories,
       animalTypes: animalTypes,
+      merchants: merchants,
       session: request.session,
       url: request.url,
       shopping_cart: request.session.cart

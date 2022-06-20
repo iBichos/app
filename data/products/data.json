@@ -4,7 +4,7 @@
     "name": "Macaco Chalesco Brinquedo Para Cães Pelúcia Marrom",
     "description": "Diversão garantida para seu cão.",
     "price_cents": 3100,
-    "merchant_id": 1,
+    "merchant_id": 2,
     "image_url": "https://static.petz.com.br/fotos/1531491431642.jpg",
     "categories": [
       1
@@ -18,7 +18,7 @@
     "name": "Brinquedo de Pelúcia Chalesco Crocodilo",
     "description": "Ideal para os pets de todos os portes e idades.",
     "price_cents": 2799,
-    "merchant_id": 1,
+    "merchant_id": 2,
     "image_url": "https://static.petz.com.br/fotos/1457992186939.jpg",
     "categories": [
       1
@@ -32,7 +32,7 @@
     "name": "Brinquedo de Pelúcia Chalesco Cachorro",
     "description": "Mantém seu cão livre de estresses.",
     "price_cents": 2499,
-    "merchant_id": 1,
+    "merchant_id": 2,
     "image_url": "https://static.petz.com.br/fotos/1458590592588.jpg",
     "categories": [
       1

@@ -22,8 +22,9 @@
 
     <h2>Lojistas</h2>
     <ul>
-      <li><a href="#">Exemplo1</a></li>
-      <li><a href="#">Exemplo2</a></li>
+      <% merchants.forEach((merchant) => { %>
+        <li><a href="?merchant=<%= merchant.id %>"><%= merchant.companyName %></a></li>
+      <% }) %>
     </ul>
 
     <hr class="solid">

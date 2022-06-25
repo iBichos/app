@@ -7,7 +7,7 @@ import methodOverride from 'method-override';
 import CustomerRouter from './src/router/customer.router.js';
 import MerchantRouter from './src/router/merchant.router.js';
 import AdminRouter from './src/router/admin.router.js'
-import { isCustomer, isSignedIn } from "./src/service/session-validation.service.js";
+import { isAdmin, isCustomer, isMerchant, isSignedIn } from "./src/service/session-validation.service.js";
 import { priceCentsMask } from './src/service/product-validation.service.js';
 
 const app = express();
@@ -34,52 +34,43 @@ app.use(bodyParser.json())
 app.get('/', CustomerRouter.home)
 app.get('/products', CustomerRouter.products)
 app.get('/products/:id', CustomerRouter.productById)
-
 app.get('/shopping_cart', CustomerRouter.cart)
-app.get('/add_to_cart/:product_id', CustomerRouter.addToCart)
-
-app.get('/profile', isCustomer, isSignedIn, CustomerRouter.profile)
-app.put('/profile', isCustomer, isSignedIn, CustomerRouter.updateProfile)
-
-app.get('/orders', CustomerRouter.orders)
-app.get('/orders/:id', CustomerRouter.showOrder)
-app.get('/create_order', CustomerRouter.createOrder)
-
 app.get('/login', CustomerRouter.login)
 app.post('/login', CustomerRouter.doLogin)
-app.get('/logout', CustomerRouter.logout);
+app.get('/logout', isSignedIn, isCustomer, CustomerRouter.logout);
+app.get('/add_to_cart/:product_id', CustomerRouter.addToCart)
+app.get('/profile', isSignedIn, isCustomer, CustomerRouter.profile)
+app.put('/profile', isSignedIn, isCustomer, CustomerRouter.updateProfile)
+app.get('/orders', isSignedIn, isCustomer, CustomerRouter.orders)
+app.get('/orders/:id', isSignedIn, isCustomer, CustomerRouter.showOrder)
+app.get('/create_order', isSignedIn, isCustomer, CustomerRouter.createOrder)
 
-app.get('/merchant/products', MerchantRouter.products)
-app.get('/merchant/products/:id/edit', MerchantRouter.editProduct)
-app.get('/merchant/products/new', MerchantRouter.newProduct)
-app.post('/merchant/products', priceCentsMask, MerchantRouter.createProduct)
-// curl -d '{"name": "Golden 78 kg","price_cents": 18999,"merchant_id": 1,"image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/merchant/products
-app.put('/merchant/products/:id', MerchantRouter.updateProduct)
-// curl -d '{"name": "Golden 78 kg","price_cents": 18999,"merchant_id": 1,"image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"}' -H "Content-Type: application/json" -X PATCH http://localhost:3000/merchant/products
-app.delete('/merchant/products/:id', MerchantRouter.deleteProduct)
-// curl -d '{"id": 11}' -H "Content-Type: application/json" -X DELETE http://localhost:3000/merchant/products
-
-app.get('/merchant/profile', MerchantRouter.profile)
-app.put('/merchant/profile', MerchantRouter.updateProfile)
+// Merchant routes
+app.get('/merchant/products', isSignedIn, isMerchant, MerchantRouter.products)
+app.get('/merchant/products/:id/edit', isSignedIn, isMerchant, MerchantRouter.editProduct)
+app.get('/merchant/products/new', isSignedIn, isMerchant, MerchantRouter.newProduct)
+app.post('/merchant/products', isSignedIn, isMerchant, priceCentsMask, MerchantRouter.createProduct)
+app.put('/merchant/products/:id', isSignedIn, isMerchant, MerchantRouter.updateProduct)
+app.delete('/merchant/products/:id', isSignedIn, isMerchant, MerchantRouter.deleteProduct)
+app.get('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.profile)
+app.put('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.updateProfile)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
-app.get('/merchant/logout', MerchantRouter.logout)
+app.get('/merchant/logout', isSignedIn, isMerchant, MerchantRouter.logout)
+app.get('/merchant/orders', isSignedIn, isMerchant, MerchantRouter.orders)
+app.get('/merchant/orders/:id', isSignedIn, isMerchant, MerchantRouter.showOrder)
+app.put('/merchant/orders/:id', isSignedIn, isMerchant, MerchantRouter.updateOrder)
 
-app.get('/merchant/orders', MerchantRouter.orders)
-app.get('/merchant/orders/:id', MerchantRouter.showOrder)
-app.put('/merchant/orders/:id', MerchantRouter.updateOrder)
-
-app.get('/admin/customers', AdminRouter.customers)
-app.get('/admin/merchants', AdminRouter.merchants)
-app.get('/admin/products', AdminRouter.products)
-app.delete('/admin/customers/:id', AdminRouter.deleteCustomer)
-app.delete('/admin/merchants/:id', AdminRouter.deleteMerchant)
-app.delete('/admin/products/:id', AdminRouter.deleteProduct)
-
-
+// Admin routes
+app.get('/admin/customers', isSignedIn, isAdmin, AdminRouter.customers)
+app.get('/admin/merchants', isSignedIn, isAdmin, AdminRouter.merchants)
+app.get('/admin/products', isSignedIn, isAdmin, AdminRouter.products)
+app.delete('/admin/customers/:id', isSignedIn, isAdmin, AdminRouter.deleteCustomer)
+app.delete('/admin/merchants/:id', isSignedIn, isAdmin, AdminRouter.deleteMerchant)
+app.delete('/admin/products/:id', isSignedIn, isAdmin, AdminRouter.deleteProduct)
 app.get('/admin/login', AdminRouter.login)
-app.post('/admin/doLogin', MerchantRouter.doLogin)
-app.get('/admin/logout', MerchantRouter.logout)
+app.post('/admin/doLogin', AdminRouter.doLogin)
+app.get('/admin/logout', isSignedIn, isAdmin, AdminRouter.logout)
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)

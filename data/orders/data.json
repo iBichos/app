@@ -150,5 +150,21 @@
         "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg"
       }
     ]
+  },
+  {
+    "id": 9,
+    "customer_id": 1,
+    "total_price_cents": 2799,
+    "status": "Pedido cancelado",
+    "created_at": "02/12/2022",
+    "products": [
+      {
+        "id": 2,
+        "quantity": 1,
+        "name": "Brinquedo de Pelúcia Chalesco Crocodilo",
+        "price_cents": 2799,
+        "image_url": "https://static.petz.com.br/fotos/1457992186939.jpg"
+      }
+    ]
   }
 ]

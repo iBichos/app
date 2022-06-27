@@ -94,5 +94,11 @@
     "price_cents": 8799,
     "merchant_id": 1,
     "image_url": "https://static.petz.com.br/fotos/1621452593731.jpg"
+  },
+  {
+    "id": 13,
+    "name": "produto",
+    "price_cents": "123",
+    "description": "description"
   }
 ]

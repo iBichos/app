@@ -141,7 +141,7 @@ export default class customerRouter {
     let today = Date.now()
 
     let order_params = {
-      "created_at": `${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`,
+      "created_at": `02/12/2022`,
       "total_price_cents": total_price_cents,
       "status": "Pedido pendente",
       "customer_id": req.session.customer.id,

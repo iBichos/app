@@ -86,9 +86,8 @@ export default class MerchantRouter {
       req.session.merchant=merchant
       req.session.isSignedIn=true
       req.session.isMerchant=true
-      console.log(req.session)
 
-      res.redirect('/merchant/products/index');
+      res.redirect('/merchant/products');
     }
     else{
       res.send('Invalid username or password');

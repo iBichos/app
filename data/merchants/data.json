@@ -7,6 +7,16 @@
     "cnpj": "cnpj",
     "phoneNumber": "telefone",
     "address": "endereço",
-    "companyName": "empresa"
+    "companyName": "Petz Marketplace"
+  },
+  {
+    "id": 2,
+    "username": "chalesco",
+    "email": "email@a",
+    "password": "",
+    "cnpj": "cnpj",
+    "phoneNumber": "telefone",
+    "address": "endereço",
+    "companyName": "Chalesco"
   }
 ]

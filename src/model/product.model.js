@@ -9,7 +9,9 @@ export default class ProductModel extends DataAccessModel {
     'price_cents',
     'description',
     'image_url',
-    'merchant_id'
+    'merchant_id',
+    'categories',
+    'animalTypes'
   ]
 
   constructor(params) {
@@ -20,6 +22,8 @@ export default class ProductModel extends DataAccessModel {
     this.description = params.description
     this.merchant_id = params.merchant_id
     this.image_url = params.image_url
+    this.categories = params.categories
+    this.animalTypes = params.animalTypes
   }
 
   merchant() {

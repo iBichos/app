@@ -104,7 +104,6 @@ export default class DataAccessModel {
       console.error(error)
     })
 
-    console.log(register)
     return register
   }
 

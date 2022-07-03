@@ -217,7 +217,6 @@ export default class customerRouter {
       req.session.customer=customer
       req.session.isSignedIn=true
       req.session.isCustomer=true
-      console.log(req.session)
 
       res.redirect('/');
     }

@@ -66,7 +66,6 @@ export default class AdminRouter {
       req.session.admin=admin
       req.session.isSignedIn=true
       req.session.isAdmin=true
-      console.log(req.session)
 
       res.redirect('/admin/merchants/index');
     }

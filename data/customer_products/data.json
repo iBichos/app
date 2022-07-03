@@ -3,5 +3,20 @@
     "id": 1,
     "product_id": "2",
     "customer_id": 1
+  },
+  {
+    "id": 2,
+    "product_id": "1",
+    "customer_id": 1
+  },
+  {
+    "id": 3,
+    "product_id": "4",
+    "customer_id": 1
+  },
+  {
+    "id": 4,
+    "product_id": "6",
+    "customer_id": 1
   }
 ]

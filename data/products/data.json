@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Macaco Chalesco Brinquedo Para Cães Pelúcia Marrom",
+    "name": "Macaco de Pelúcia Chalesco Marrom",
     "description": "Diversão garantida para seu cão.",
-    "price_cents": 3100,
+    "price_cents": 3199,
     "merchant_id": 2,
     "image_url": "https://static.petz.com.br/fotos/1531491431642.jpg",
     "categories": [
@@ -71,9 +71,9 @@
   },
   {
     "id": 6,
-    "name": "Golden 15 kg",
+    "name": "Ração Golden Fórmula - 3 kg",
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
-    "price_cents": 12999,
+    "price_cents": 3999,
     "merchant_id": 1,
     "image_url": "https://50192.cdn.simplo7.net/static/50192/sku/cachorro-racao-golden-formula-mini-bits-para-cachorro-adulto-carne-e-arroz--p-1590533328758.jpg",
     "categories": [
@@ -85,7 +85,7 @@
   },
   {
     "id": 7,
-    "name": "Ração Úmida Hills Prescription Diet A/D Cuidados Críticos para Cães e Gatos - 156g",
+    "name": "Ração Úmida Hills Cuidados Críticos para Cães e Gatos - 156g",
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 3399,
     "merchant_id": 1,
@@ -99,7 +99,7 @@
   },
   {
     "id": 8,
-    "name": "Ração Hills Science Diet para Cães Adultos de Grande Porte Sabor Frango 12kg",
+    "name": "Ração Hills Science Diet Sabor Frango - 12kg",
     "description": "Oferece todos nutrientes necessários para uma vida saudável.",
     "price_cents": 36999,
     "merchant_id": 1,
@@ -141,7 +141,7 @@
   },
   {
     "id": 11,
-    "name": "Tapete Higiênico Petz para Cães Slim 30un",
+    "name": "Tapete Higiênico Petz para Cães Slim - 30un",
     "description": "Adesivo no verso dos tapetes para melhor fixação, tanto no chão, quanto na parede.",
     "price_cents": 8699,
     "merchant_id": 1,
@@ -155,7 +155,7 @@
   },
   {
     "id": 12,
-    "name": "Tapete Higiênico Petz para Cães Superabsorvente 30 Unidades",
+    "name": "Tapete Higiênico Petz para Cães Superabsorvente - 30un",
     "description": "Adesivo no verso dos tapetes para melhor fixação, tanto no chão, quanto na parede.",
     "price_cents": 8799,
     "merchant_id": 1,

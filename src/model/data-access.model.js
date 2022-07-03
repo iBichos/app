@@ -76,35 +76,35 @@ export default class DataAccessModel {
     table.write()
   }
 
-  static create(params) {
-    const table = this.loadTable()
-
-    // setup new id
-    const registersLength = table.data.length
-    let id = 1
-    if (registersLength > 0) {
-      let lastElementid = table.data[registersLength - 1].id
-      id = lastElementid + 1
-    }
-
-    let values = {
-      "id": id
-    }
-
-    // constroi os parametros usando os campos do model e os parametros passados
+  static async create(params) {
+    // validando campos
+    let paramsToCreate = {}
     this.fields.forEach((field) => {
-      if (params[field] !== null) {
-        values[field] = params[field]
-      } else {
-        values[field] = null
+      if (params[field] !== null && params[field] !== undefined) {
+        paramsToCreate[field] = params[field]
       }
     })
 
-    // salvando no banco de dados
-    table.data.push(values)
-    table.write()
+    //construido payload
+    const payload = JSON.stringify({ 
+      "table": this.tableName,
+      "params": paramsToCreate 
+    })
 
-    return this.find(id)
+    let register
+    const res = await axios.post('http://localhost:3001/create', payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      register = new this(res.data) 
+    })
+    .catch(error => {
+      console.error(error)
+    })
+
+    console.log(register)
+    return register
   }
 
   static async update(id, params) {

@@ -9,8 +9,10 @@ const layout = 'layouts/customer'
 
 
 export default class customerRouter { 
-  static home = (request, response) => {
-    let products = ProductModel.list().slice(0, 4)
+  static home = async (request, response) => {
+    let products = await ProductModel.list()
+    products = products.slice(0, 4)
+
     request.session.products = products
     response.render('customer/home/index', {
       layout,
@@ -21,11 +23,11 @@ export default class customerRouter {
     });
   }
   
-  static products = (request, response) => {
-    let products = ProductModel.list()
-    let categories = CategoryModel.list()
-    let animalTypes = AnimalTypeModel.list()
-    let merchants = MerchantModel.list()
+  static products = async (request, response) => {
+    let products = await ProductModel.list()
+    let categories = await CategoryModel.list()
+    let animalTypes = await AnimalTypeModel.list()
+    let merchants = await MerchantModel.list()
     const query = request.query
 
     if (query.category) {
@@ -63,9 +65,9 @@ export default class customerRouter {
     });
   }
   
-  static productById = (req, res) => {
+  static productById = async (req, res) => {
     // find product with req.params.id
-    let product = ProductModel.find(req.params.id)
+    let product = await ProductModel.find(req.params.id)
 
     res.render('customer/products/show', {
       layout: layout,
@@ -99,8 +101,8 @@ export default class customerRouter {
     });
   }
 
-  static addToCart = (req, res) => {
-    let addedProduct = ProductModel.find(req.params.product_id)
+  static addToCart = async (req, res) => {
+    let addedProduct = await ProductModel.find(req.params.product_id)
     
     if (typeof req.session.cart != "undefined") {
       req.session.cart.push({ product: addedProduct, quantity: 1 })
@@ -131,16 +133,16 @@ export default class customerRouter {
     })
   }
 
-  static updateProfile = (req, res) => {
-    CustomerModel.update(req.session.customer.id, req.body)
+  static updateProfile = async (req, res) => {
+    await CustomerModel.update(req.session.customer.id, req.body)
 
-    req.session.customer = CustomerModel.find(req.session.customer.id)
+    req.session.customer = await CustomerModel.find(req.session.customer.id)
 
     this.profile(req, res)
   }
 
-  static orders = (req, res) => {
-    let orders = OrderModel.list()
+  static orders = async (req, res) => {
+    let orders = await OrderModel.list()
   
     res.render('customer/orders/index', {
       layout: layout,
@@ -209,8 +211,8 @@ export default class customerRouter {
     }
   }
 
-  static doLogin = (req, res) => {
-    let customer = CustomerModel.findByField("username", req.body.username)
+  static doLogin = async (req, res) => {
+    let customer = await CustomerModel.findByField("username", req.body.username)
     if(customer && customer.password === req.body.password){
       req.session.customer=customer
       req.session.isSignedIn=true

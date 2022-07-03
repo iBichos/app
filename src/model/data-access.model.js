@@ -65,15 +65,16 @@ export default class DataAccessModel {
     return register
   }
 
-  static delete(id) {
-    const table = this.loadTable()
-    const index = table.data.findIndex(element => element.id == id)
-
-    if (index == -1) return
-
-    // deletando o registro do banco de dados
-    table.data.splice(index, 1)
-    table.write()
+  static async delete(id) {
+    const params = new URLSearchParams({ "table": this.tableName, "id": id })
+    await axios
+      .delete('http://localhost:3001/delete', { params })
+      .then(res => {
+        res.data
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   static async create(params) {

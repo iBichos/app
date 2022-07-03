@@ -5,8 +5,8 @@ import CustomerModel from "../model/customer.model.js";
 const layout = 'layouts/admin'
 
 export default class AdminRouter {
-  static customers = (req, res) => {
-    let customers = CustomerModel.list()
+  static customers = async (req, res) => {
+    let customers = await CustomerModel.list()
     
     res.render('admin/customers/index', {
       layout,
@@ -16,13 +16,13 @@ export default class AdminRouter {
     })
   }
 
-  static deleteCustomer = (req, res) => {
-    CustomerModel.delete(req.params.id)
+  static deleteCustomer = async (req, res) => {
+    await CustomerModel.delete(req.params.id)
     this.customers(req,res)
   }
 
-  static merchants = (req, res) => {
-    let merchants = MerchantModel.list()
+  static merchants = async (req, res) => {
+    let merchants = await MerchantModel.list()
     res.render('admin/merchants/index', {
       layout,
       session: req.session,
@@ -31,13 +31,13 @@ export default class AdminRouter {
     })
   }
 
-  static deleteMerchant = (req, res) => {
-    MerchantModel.delete(req.params.id)
+  static deleteMerchant = async (req, res) => {
+    await MerchantModel.delete(req.params.id)
     this.merchants(req,res)
   }
 
-  static products = (req, res) => {
-    let products = ProductModel.list()
+  static products = async (req, res) => {
+    let products = await ProductModel.list()
 
     res.render('admin/products/index', {
       layout,
@@ -47,8 +47,8 @@ export default class AdminRouter {
     })
   }
 
-  static deleteProduct = (req, res) => {
-    ProductModel.delete(req.params.id)
+  static deleteProduct = async (req, res) => {
+    await ProductModel.delete(req.params.id)
     this.products(req,res)
   }
 
@@ -60,13 +60,12 @@ export default class AdminRouter {
     })
   }
 
-  static doLogin = (req, res) => {
-    let admin = AdminModel.findByField("username", req.body.username)
+  static doLogin = async (req, res) => {
+    let admin = await AdminModel.findByField("username", req.body.username)
     if(admin && admin.password === req.body.password){
       req.session.admin=admin
       req.session.isSignedIn=true
       req.session.isAdmin=true
-      console.log(req.session)
 
       res.redirect('/admin/merchants/index');
     }

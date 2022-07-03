@@ -5,8 +5,8 @@ import MerchantModel from "../model/merchant.model.js";
 const layout = 'layouts/merchant'
 
 export default class MerchantRouter {
-  static profile = (request, response) => {
-    let merchant = MerchantModel.find(1)
+  static profile = async (request, response) => {
+    let merchant = await MerchantModel.find(1)
 
     response.render('merchant/profile/edit', {
       layout,
@@ -16,15 +16,15 @@ export default class MerchantRouter {
     })
   }
 
-  static updateProfile = (req, res) => {
-    let merchant = MerchantModel.find(1)
+  static updateProfile = async (req, res) => {
+    let merchant = await MerchantModel.find(1)
     MerchantModel.update(merchant.id, req.body)
 
     this.profile(req, res)
   }
 
-  static products = (req, res) => {
-    let products = ProductModel.list()
+  static products = async (req, res) => {
+    let products = await ProductModel.list()
 
     res.render('merchant/products/index', {
       layout,
@@ -46,8 +46,8 @@ export default class MerchantRouter {
     })
   }
 
-  static editProduct = (req, res) => {
-    let product = ProductModel.find(req.params.id)
+  static editProduct = async (req, res) => {
+    let product = await ProductModel.find(req.params.id)
     res.render('merchant/products/form', {
       layout,
       session: req.session,
@@ -57,18 +57,18 @@ export default class MerchantRouter {
     })
   }
 
-  static updateProduct = (req, res) => {
-    ProductModel.update(req.params.id, req.body)
+  static updateProduct = async (req, res) => {
+    await ProductModel.update(req.params.id, req.body)
     this.products(req,res)
   }
 
-  static createProduct = (req, res) => {
-    ProductModel.create(req.body)
+  static createProduct = async (req, res) => {
+    await ProductModel.create(req.body)
     this.products(req,res)
   }
 
-  static deleteProduct = (req, res) => {
-    ProductModel.delete(req.params.id)
+  static deleteProduct = async (req, res) => {
+    await ProductModel.delete(req.params.id)
     this.products(req,res)
   }
 
@@ -80,8 +80,8 @@ export default class MerchantRouter {
     })
   }
 
-  static doLogin = (req, res) => {
-    let merchant = MerchantModel.findByField("username", req.body.username)
+  static doLogin = async (req, res) => {
+    let merchant = await MerchantModel.findByField("username", req.body.username)
     if(merchant && merchant.password === req.body.password){
       req.session.merchant=merchant
       req.session.isSignedIn=true
@@ -99,8 +99,8 @@ export default class MerchantRouter {
     res.redirect('/');
   }
 
-  static orders = (req, res) => {
-    let orders = OrderModel.list()
+  static orders = async (req, res) => {
+    let orders = await OrderModel.list()
 
     res.render('merchant/orders/index', {
       layout,
@@ -110,8 +110,8 @@ export default class MerchantRouter {
     })
   }
 
-  static showOrder = (req, res) => {
-    let order = OrderModel.find(req.params.id)
+  static showOrder = async (req, res) => {
+    let order = await OrderModel.find(req.params.id)
 
     res.render('merchant/orders/show', {
       layout,

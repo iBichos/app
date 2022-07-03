@@ -4,6 +4,7 @@ import OrderModel from "../model/order.model.js";
 import CategoryModel from '../model/category.model.js';
 import AnimalTypeModel from '../model/animal-type.model.js';
 import MerchantModel from '../model/merchant.model.js';
+import CustomerProductModel from '../model/customer_product.model.js';
 
 const layout = 'layouts/customer'
 
@@ -19,6 +20,32 @@ export default class customerRouter {
       url: request.url,
       shopping_cart: request.session.cart
     });
+  }
+
+  static wishlist = (request, response) => {
+
+    let customer_products_list = CustomerProductModel.list()
+    let customer_products = customer_products_list.filter(customer_product => customer_product.customer_id == request.session.customer.id)
+    response.render('customer/wishlist/index', {
+      layout,
+      customer_products: customer_products,
+      session: request.session,
+      url: request.url,
+      shopping_cart: request.session.cart
+    });
+  }
+
+  static addToWishlist = (request, response) => {
+    let customer_product = CustomerProductModel.create({
+      customer_id: request.session.customer.id,
+      product_id: request.params.product_id
+    })
+    response.send(customer_product)
+  }
+
+  static removeFromWishlist = (request, response) => {
+    CustomerProductModel.delete(request.params.customer_product_id)
+    this.wishlist(request,response)
   }
   
   static products = (request, response) => {

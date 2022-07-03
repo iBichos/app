@@ -1,0 +1,8 @@
+<%- contentFor('content') %>
+
+<% customer_products.forEach((customer_product) => { %>
+    <%= customer_product.product().name %>
+    <form method="POST" action="/customer_products/<%= customer_product.id %>?_method=DELETE">
+        <button class="delete" type="submit">Excluir</button>
+      </form>
+  <% }) %>

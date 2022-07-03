@@ -44,6 +44,9 @@ app.put('/profile', isSignedIn, isCustomer, CustomerRouter.updateProfile)
 app.get('/orders', isSignedIn, isCustomer, CustomerRouter.orders)
 app.get('/orders/:id', isSignedIn, isCustomer, CustomerRouter.showOrder)
 app.get('/create_order', isSignedIn, isCustomer, CustomerRouter.createOrder)
+app.get('/wishlist', isSignedIn, isCustomer, CustomerRouter.wishlist)
+app.get('/add_to_wishlist/:product_id', isSignedIn, isCustomer, CustomerRouter.addToWishlist)
+app.delete('/customer_products/:customer_product_id', isSignedIn, isCustomer, CustomerRouter.removeFromWishlist)
 
 // Merchant routes
 app.get('/merchant/products', isSignedIn, isMerchant, MerchantRouter.products)

@@ -25,6 +25,7 @@
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p id="product-description"><%= product.description %></p>
                 <button class="button-add" id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
+                <button class="button-add" id="add-to-wishlist" data-product-id="<%= product.id %>">Adicionar à lista de desejos</button>
             </div>
         </section>
     </div>
@@ -38,5 +39,11 @@
             let cart_counter = document.querySelector("#navbar-cart-counter")
             cart_counter.innerHTML = parseInt(cart_counter.innerHTML) + 1
         })
+    })
+
+    const addToWishlistButton = document.querySelector("#add-to-wishlist")
+    addToWishlistButton.addEventListener('click', (e) => {
+        const product_id = e.target.dataset.productId
+        fetch(`/add_to_wishlist/${ product_id }`)
     })
 </script>

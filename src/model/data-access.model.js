@@ -107,37 +107,33 @@ export default class DataAccessModel {
     return this.find(id)
   }
 
-  static update(id, params) {
-    const table = this.loadTable()
-    const index = table.data.findIndex(element => element.id == id)
-
-    if (index === -1) return
-
-
-    paramsToUpdate = {}
-    // atualizando os campos no banco usando os campos do model e os parametros passados
+  static async update(id, params) {
+    // validando campos
+    let paramsToUpdate = {}
     this.fields.forEach((field) => {
       if (params[field] !== null && params[field] !== undefined) {
         paramsToUpdate[field] = params[field]
       }
     })
 
-
-    return this.find(id)
-
-
-
+    //construido payload
+    const payload = JSON.stringify({ 
+      "table": this.tableName,
+      "id": id,
+      "params": paramsToUpdate 
+    })
 
     let register
-    const params = new URLSearchParams({ "table": this.tableName, "id": id, "params": paramsToUpdate })
-    await axios
-      .post('http://localhost:3001/update', { params })
-      .then(res => {
-        register = new this(res.data) 
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    const res = await axios.put('http://localhost:3001/update', payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      register = new this(res.data) 
+    })
+    .catch(error => {
+      console.error(error)
+    })
 
     return register
   }

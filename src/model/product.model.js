@@ -26,8 +26,8 @@ export default class ProductModel extends DataAccessModel {
     this.animalTypes = params.animalTypes
   }
 
-  async merchant() {
-    return await MerchantModel.find(this.merchant_id)
+  merchant() {
+    return MerchantModel.find(this.merchant_id)
   }
 
   price() {

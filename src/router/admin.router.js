@@ -5,8 +5,8 @@ import CustomerModel from "../model/customer.model.js";
 const layout = 'layouts/admin'
 
 export default class AdminRouter {
-  static customers = async (req, res) => {
-    let customers = await CustomerModel.list()
+  static customers = (req, res) => {
+    let customers = CustomerModel.list()
     
     res.render('admin/customers/index', {
       layout,
@@ -21,8 +21,8 @@ export default class AdminRouter {
     this.customers(req,res)
   }
 
-  static merchants = async (req, res) => {
-    let merchants = await MerchantModel.list()
+  static merchants = (req, res) => {
+    let merchants = MerchantModel.list()
     res.render('admin/merchants/index', {
       layout,
       session: req.session,
@@ -36,8 +36,8 @@ export default class AdminRouter {
     this.merchants(req,res)
   }
 
-  static products = async (req, res) => {
-    let products = await ProductModel.list()
+  static products = (req, res) => {
+    let products = ProductModel.list()
 
     res.render('admin/products/index', {
       layout,
@@ -60,8 +60,8 @@ export default class AdminRouter {
     })
   }
 
-  static doLogin = async (req, res) => {
-    let admin = await AdminModel.findByField("username", req.body.username)
+  static doLogin = (req, res) => {
+    let admin = AdminModel.findByField("username", req.body.username)
     if(admin && admin.password === req.body.password){
       req.session.admin=admin
       req.session.isSignedIn=true

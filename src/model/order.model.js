@@ -22,8 +22,8 @@ export default class OrderModel extends DataAccessModel {
     this.products = params.products
   }
 
-  async customer() {
-    return await CustomerModel.find(this.customer_id)
+  customer() {
+    return CustomerModel.find(this.customer_id)
   }
 
   total_price() {

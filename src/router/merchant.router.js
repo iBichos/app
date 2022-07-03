@@ -57,18 +57,18 @@ export default class MerchantRouter {
     })
   }
 
-  static updateProduct = (req, res) => {
-    ProductModel.update(req.params.id, req.body)
+  static updateProduct = async (req, res) => {
+    await ProductModel.update(req.params.id, req.body)
     this.products(req,res)
   }
 
-  static createProduct = (req, res) => {
-    ProductModel.create(req.body)
+  static createProduct = async (req, res) => {
+    await ProductModel.create(req.body)
     this.products(req,res)
   }
 
-  static deleteProduct = (req, res) => {
-    ProductModel.delete(req.params.id)
+  static deleteProduct = async (req, res) => {
+    await ProductModel.delete(req.params.id)
     this.products(req,res)
   }
 

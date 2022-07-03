@@ -16,8 +16,8 @@ export default class AdminRouter {
     })
   }
 
-  static deleteCustomer = (req, res) => {
-    CustomerModel.delete(req.params.id)
+  static deleteCustomer = async (req, res) => {
+    await CustomerModel.delete(req.params.id)
     this.customers(req,res)
   }
 
@@ -31,8 +31,8 @@ export default class AdminRouter {
     })
   }
 
-  static deleteMerchant = (req, res) => {
-    MerchantModel.delete(req.params.id)
+  static deleteMerchant = async (req, res) => {
+    await MerchantModel.delete(req.params.id)
     this.merchants(req,res)
   }
 
@@ -47,8 +47,8 @@ export default class AdminRouter {
     })
   }
 
-  static deleteProduct = (req, res) => {
-    ProductModel.delete(req.params.id)
+  static deleteProduct = async (req, res) => {
+    await ProductModel.delete(req.params.id)
     this.products(req,res)
   }
 

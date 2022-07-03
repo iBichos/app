@@ -153,7 +153,7 @@ export default class customerRouter {
     })
   }
 
-  static createOrder = (req, res) => {
+  static createOrder = async (req, res) => {
 
     let total_price_cents = req.session.cart.reduce(
       (sum, item) => sum + item.product.price_cents * item.quantity,
@@ -182,7 +182,7 @@ export default class customerRouter {
       "products": products
     }
 
-    OrderModel.create(order_params)
+    await OrderModel.create(order_params)
     
     req.session.cart = []
 

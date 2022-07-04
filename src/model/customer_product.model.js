@@ -16,7 +16,7 @@ export default class CustomerProductModel extends DataAccessModel {
     this.customer_id = params.customer_id
   }
 
-  product(){
-    return ProductModel.find(this.product_id)
+  async product(){
+    return await ProductModel.find(this.product_id)
   }
 }

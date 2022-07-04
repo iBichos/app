@@ -24,29 +24,41 @@ export default class customerRouter {
     });
   }
 
-  static wishlist = (request, response) => {
-
-    let customer_products_list = CustomerProductModel.list()
+  static wishlist = async (request, response) => {
+    let customer_products_list = await CustomerProductModel.list()
     let customer_products = customer_products_list.filter(customer_product => customer_product.customer_id == request.session.customer.id)
+
+    let customer_products_with_products = []
+    for (const customer_product of customer_products) {
+      let product = await customer_product.product()
+      
+      let customer_product_with_product = customer_product
+      customer_product_with_product['product'] = product
+
+      customer_products_with_products.push(
+        customer_product_with_product
+      )
+    }
+
     response.render('customer/wishlist/index', {
       layout,
-      customer_products: customer_products,
+      customer_products: customer_products_with_products,
       session: request.session,
       url: request.url,
       shopping_cart: request.session.cart
-    });
+    })
   }
 
-  static addToWishlist = (request, response) => {
-    let customer_product = CustomerProductModel.create({
+  static addToWishlist = async (request, response) => {
+    let customer_product = await CustomerProductModel.create({
       customer_id: request.session.customer.id,
       product_id: request.params.product_id
     })
     response.send(customer_product)
   }
 
-  static removeFromWishlist = (request, response) => {
-    CustomerProductModel.delete(request.params.customer_product_id)
+  static removeFromWishlist = async (request, response) => {
+    await CustomerProductModel.delete(request.params.customer_product_id)
     this.wishlist(request,response)
   }
   

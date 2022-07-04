@@ -3,13 +3,16 @@
 <div class="wishlist_title">Lista de desejos</div>
 <div class="wishlist">
     <% customer_products.forEach((customer_product)=>{ %>
+
+      <% let product = customer_product.product %>
+  
       <div class="wishlist-item">
-        <img src="<%= customer_product.product().image_url %>" alt="image" class="wishlist_product_image" width="50px">
+        <img src="<%= product.image_url %>" alt="image" class="wishlist_product_image" width="50px">
         <div class="wishlist_product_name">
-          <h3><%= customer_product.product().name %></h3>
+          <h3><%= product.name %></h3>
         </div>
         <div class="wishlist_product_info">
-          <div class="wishlist_product_name">R$ <%= customer_product.product().price_cents / 100 %></div>
+          <div class="wishlist_product_name">R$ <%= product.price_cents / 100 %></div>
         </div>
         <div class="wishlist_product_info">
             <form method="POST" action="/customer_products/<%= customer_product.id %>?_method=DELETE">

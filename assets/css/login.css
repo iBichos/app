@@ -33,6 +33,13 @@ html,body{
   border-radius: 15px 15px 0 0;
   background: #DEEAEC;
 }
+
+.wrapper .rejected {
+  color: #f32727;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 .wrapper form{
   padding: 10px 30px 50px 30px;
 }

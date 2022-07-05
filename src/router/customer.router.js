@@ -237,9 +237,11 @@ export default class customerRouter {
     })
   }
 
-  static login = (req, res) => {
+  static login = async (req, res) => {
+    let products = await ProductModel.list()
+    req.session.products = products
     if(req.session.isLoggedIn) {
-      res.send("Welcome User <a href=\'/logout'>click to logout</a>");
+      this.profile(req, res)
     }
     else {
       res.render('customer/login/new', {
@@ -256,11 +258,12 @@ export default class customerRouter {
       req.session.customer=customer
       req.session.isSignedIn=true
       req.session.isCustomer=true
-
-      res.redirect('/');
+      req.session.signInRejected=false
+      this.profile(req, res)
     }
     else{
-      res.send('Invalid username or password');
+      req.session.signInRejected=true
+      this.login(req, res)
     }
   }
 

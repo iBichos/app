@@ -16,7 +16,7 @@
       <!-- <div id="search-container"> -->
         <input id="search-field" onkeyup="openList() "type="text">
         <ul id="suggestion-list">
-          <% session.products.slice(0, 10).forEach(product => { %>
+          <% session.products.forEach(product => { %>
             <li><a href= "/products/<%= product.id %>"><%= product.name %></a></li>
           <% }) %>
         </ul>

@@ -66,11 +66,12 @@ export default class AdminRouter {
       req.session.admin=admin
       req.session.isSignedIn=true
       req.session.isAdmin=true
-
-      res.redirect('/admin/merchants/index');
+      req.session.signInRejected=false
+      this.products(req, res)
     }
     else{
-      res.send('Invalid username or password');
+      req.session.signInRejected=true
+      this.login(req, res)
     }
   }
 

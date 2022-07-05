@@ -86,11 +86,12 @@ export default class MerchantRouter {
       req.session.merchant=merchant
       req.session.isSignedIn=true
       req.session.isMerchant=true
-
-      res.redirect('/merchant/products');
+      req.session.signInRejected=false
+      this.profile(req, res)
     }
     else{
-      res.send('Invalid username or password');
+      req.session.signInRejected=true
+      this.login(req, res)
     }
   }
 

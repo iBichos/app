@@ -1,23 +1,6 @@
-import {join, dirname} from 'path'
-import {LowSync, JSONFileSync} from 'lowdb'
-import {fileURLToPath} from 'url'
-
 import axios from  'axios'
 
 export default class DataAccessModel {
-
-  static loadTable() {
-    const __dirname = dirname(fileURLToPath(import.meta.url));
-    const file = join(__dirname, `../../data/${this.tableName}/data.json`)
-
-    const adapter = new JSONFileSync(file)
-    const dbTable = new LowSync(adapter)
-
-    dbTable.read()
-
-    return dbTable
-  }
-
   static async list() {
     let list = []
     const params = new URLSearchParams({ "table": this.tableName})

@@ -6,10 +6,13 @@
     <div class="wrapper">
       <form action="/merchant/products/<%= product.id %>?_method=<%= method %>" method="POST">
         <div class="form-row">
-            <label for="avatar">Escolha uma foto para o produto:</label>
-            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> 
+          <div class="field">
+            <input type="text" required value="<%= product.image_url %>" name="image_url">
+            <label>URL da imagem</label>
+          </div>
         </div>
         <div class="form-row">
+          
           <div class="field">
             <input type="text" required value="<%= product.name %>" name="name">
             <label>Nome</label>

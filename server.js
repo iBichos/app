@@ -3,6 +3,7 @@ import expressLayouts from 'express-ejs-layouts'
 import sessions from 'express-session';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
+import path from 'path';
 
 import CustomerRouter from './src/router/customer.router.js';
 import MerchantRouter from './src/router/merchant.router.js';
@@ -12,6 +13,7 @@ import { priceCentsMask } from './src/service/product-validation.service.js';
 
 const app = express();
 const port = 3000
+const __dirname = path.resolve();
 
 app.set('view engine', 'ejs')
 
@@ -19,6 +21,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.use(express.static('./assets'));
+
 //session middleware
 app.use(sessions({
   secret: "iBichosSecretKey",
@@ -74,6 +77,14 @@ app.delete('/admin/products/:id', isSignedIn, isAdmin, AdminRouter.deleteProduct
 app.get('/admin/login', AdminRouter.login)
 app.post('/admin/doLogin', AdminRouter.doLogin)
 app.get('/admin/logout', isSignedIn, isAdmin, AdminRouter.logout)
+
+app.use((req, res) => {
+  res.status(404);
+
+  res.sendFile(path.join(__dirname+ '/public/404.html'));
+  return;
+
+});
 
 app.listen(port, () => {
   console.log('Server listening on port ' + port)

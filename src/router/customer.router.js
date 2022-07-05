@@ -267,6 +267,20 @@ export default class customerRouter {
     }
   }
 
+  static sign_up = async (req, res) => {
+    res.render('customer/sign_up/new', {
+      session: req.session,
+      shopping_cart: req.session.cart,
+      url: req.url,
+    })
+  }
+
+  static create_user = async(req, res) => {
+    await CustomerModel.create(req.body)
+
+    this.login(req,res)
+  }
+
   static logout = (req,res) => {
     req.session.destroy();
     res.redirect('/');

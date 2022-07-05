@@ -40,6 +40,8 @@ app.get('/products/:id', CustomerRouter.productById)
 app.get('/shopping_cart', CustomerRouter.cart)
 app.get('/login', CustomerRouter.login)
 app.post('/login', CustomerRouter.doLogin)
+app.get('/sign_up', CustomerRouter.sign_up)
+app.post('/sign_up', CustomerRouter.create_user)
 app.get('/logout', isSignedIn, isCustomer, CustomerRouter.logout);
 app.get('/add_to_cart/:product_id', CustomerRouter.addToCart)
 app.get('/profile', isSignedIn, isCustomer, CustomerRouter.profile)

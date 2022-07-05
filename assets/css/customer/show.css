@@ -3,6 +3,8 @@ main {
     height: 80%;
     justify-content: center;
     background-color: var(--background-color);
+    flex-flow: row;
+    flex-wrap: wrap;
   }
   
 #container {
@@ -68,3 +70,62 @@ main {
     background-color: #3f3f3f;
     color: #fffdf9;
   }
+
+#comments {
+  margin-top: 6rem;
+  width: 60%;
+}
+
+.comment-form {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.comment-form h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.comment-form form {
+  display: flex;
+}
+
+.comment-form input {
+  width: 100%;
+  padding: 0 25px;
+  border: 1px solid #86b0b6;
+  font-size: 1rem;
+  margin-right: 1rem;
+  border-radius: 20px;
+}
+.comment-form input:focus{
+  border: 1px solid black;
+  outline: 0;
+}
+
+.comment-form button {
+  width: 5%;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  margin-right: 1rem;
+  width: fit-content;
+}
+
+.comment {
+  margin-top: 1rem;
+}
+
+.comment-author {
+  font-size: 0.7rem;
+  color: rgb(63, 62, 62);
+}
+
+.comment-date {
+  font-size: 0.7rem;
+  color: rgb(63, 62, 62);
+}

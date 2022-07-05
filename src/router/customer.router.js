@@ -5,6 +5,7 @@ import CategoryModel from '../model/category.model.js';
 import AnimalTypeModel from '../model/animal-type.model.js';
 import MerchantModel from '../model/merchant.model.js';
 import CustomerProductModel from '../model/customer_product.model.js';
+import CommentModel from '../model/comment.model.js';
 
 const layout = 'layouts/customer'
 
@@ -107,10 +108,12 @@ export default class customerRouter {
   static productById = async (req, res) => {
     // find product with req.params.id
     let product = await ProductModel.find(req.params.id)
-
+    let comments = await CommentModel.findByField("product_id", req.params.id)
+    console.log(comments);
     res.render('customer/products/show', {
       layout: layout,
       product: product,
+      comments: comments,
       url: req.url,
       shopping_cart: req.session.cart,
       session: req.session
@@ -287,5 +290,12 @@ export default class customerRouter {
   static logout = (req,res) => {
     req.session.destroy();
     res.redirect('/');
+  }
+
+  static doComment = async(req, res) =>  {
+    req.body.date =  (new Date()).toString;
+    req.body.customer_id = req.session.customer.id;
+    await CommentModel.create(req.body)
+    this.login(req,res)
   }
 }

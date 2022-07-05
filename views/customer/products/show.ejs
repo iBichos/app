@@ -24,10 +24,39 @@
                 
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p id="product-description"><%= product.description %></p>
-                <button class="button-add" id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
-                <button class="button-add-wishlist" id="add-to-wishlist" data-product-id="<%= product.id %>">Adicionar à lista de desejos</button>
+                <div class="buttons">
+                    <button class="button-add" id="add-to-cart" data-product-id="<%= product.id %>">Adicionar ao carrinho</button>
+                    <button class="button-add-wishlist" id="add-to-wishlist" data-product-id="<%= product.id %>">Adicionar à lista de desejos</button>
+                </div>
             </div>
         </section>
+
+        <!--  -->
+    </div>
+    <div id="comments">
+        <div style="justify-content: center; text-align: center;">
+            <h2>Comentarios</h2>
+        </div>
+        <div class="comment-form">
+            <form action="/comment" method="post">
+              <input name="comment" id="comment" placeholder="Digite seu comentário" required></input>
+              <input name="product_id" style="display: none;" required><%= product.id %></input>
+              <input name="customer_id" style="display: none;" required><%= product.id %></input>
+              <button class="button-add" type="submit" value="Comentar"> > </button>
+            </form>
+        </div>
+
+        <!-- <div class="comment-view">
+            <div class="comment">Eu gostei desse produto!</div>
+            <div class="comment-author">Allan César</div>
+            <div class="comment-date">05/07/2022</div>
+        </div>
+    
+        <div class="comment-view">
+            <div class="comment">Eu gostei desse produto!</div>
+            <div class="comment-author">Allan César</div>
+            <div class="comment-date">05/07/2022</div>
+        </div> -->
     </div>
 </main>
 

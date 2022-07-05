@@ -74,7 +74,6 @@ export default class MerchantRouter {
 
   static login = (req, res) => {
     res.render('merchant/login/index', {
-      layout,
       session: req.session,
       url: req.url
     })

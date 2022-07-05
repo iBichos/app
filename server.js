@@ -79,7 +79,7 @@ app.delete('/admin/customers/:id', isSignedIn, isAdmin, AdminRouter.deleteCustom
 app.delete('/admin/merchants/:id', isSignedIn, isAdmin, AdminRouter.deleteMerchant)
 app.delete('/admin/products/:id', isSignedIn, isAdmin, AdminRouter.deleteProduct)
 app.get('/admin/login', AdminRouter.login)
-app.post('/admin/doLogin', AdminRouter.doLogin)
+app.post('/admin/login', AdminRouter.doLogin)
 app.get('/admin/logout', isSignedIn, isAdmin, AdminRouter.logout)
 
 app.use((req, res) => {

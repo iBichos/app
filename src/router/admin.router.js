@@ -1,6 +1,7 @@
 import ProductModel from "../model/product.model.js";
 import MerchantModel from "../model/merchant.model.js";
 import CustomerModel from "../model/customer.model.js";
+import AdminModel from "../model/admin.model.js";
 
 const layout = 'layouts/admin'
 
@@ -53,8 +54,7 @@ export default class AdminRouter {
   }
 
   static login = (req, res) => {
-    res.render('admin/login/index', {
-      layout,
+    res.render('admin/login/new', {
       session: req.session,
       url: req.url
     })

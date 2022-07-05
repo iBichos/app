@@ -1,0 +1,31 @@
+<%- contentFor('content') %>
+
+<div class="wrapper">
+   <div class="title">
+      Acesse sua conta
+   </div>
+   <% if(session.signInRejected) { %>
+   <div class="rejected">
+      Usuário ou senha inválido
+   </div>
+   <% } %>
+   <form action="/admin/login" method="post">
+      <div class="field">
+         <input type="text" required name="username" id="username">
+         <label>Usuário</label>
+      </div>
+      <div class="field">
+         <input type="password" required name="password" id="password">
+         <label>Senha</label>
+      </div>
+      <div class="content">
+         <div class="checkbox">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Lembrar minha conta</label>
+         </div>
+      </div>
+      <div class="field">
+         <input type="submit" value="Entrar">
+      </div>
+   </form>
+</div>

@@ -72,6 +72,18 @@ export default class MerchantRouter {
     this.products(req,res)
   }
 
+  static sign_up = async (req, res) => {
+    res.render('merchant/sign_up/new', {
+      session: req.session,
+      url: req.url,
+    })
+  }
+
+  static create_merchant = async(req, res) => {
+    await MerchantModel.create(req.body)
+    this.login(req,res)
+  }
+
   static login = (req, res) => {
     res.render('merchant/login/index', {
       session: req.session,

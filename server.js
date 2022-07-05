@@ -62,6 +62,8 @@ app.put('/merchant/products/:id', isSignedIn, isMerchant, MerchantRouter.updateP
 app.delete('/merchant/products/:id', isSignedIn, isMerchant, MerchantRouter.deleteProduct)
 app.get('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.profile)
 app.put('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.updateProfile)
+app.get('/merchant/sign_up', MerchantRouter.sign_up)
+app.post('/merchant/sign_up', MerchantRouter.create_merchant)
 app.get('/merchant/login', MerchantRouter.login)
 app.post('/merchant/login', MerchantRouter.doLogin)
 app.get('/merchant/logout', isSignedIn, isMerchant, MerchantRouter.logout)

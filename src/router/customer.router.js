@@ -228,10 +228,13 @@ export default class customerRouter {
     this.showOrder(req, res)
   }
 
-  static showOrder = (req, res) => {
+  static showOrder = async (req, res) => {
+    let order = await OrderModel.find(req.params.id)
+
     res.render('customer/orders/show', {
       layout: layout,
       session: req.session,
+      order: order,
       shopping_cart: req.session.cart,
       url: req.url,
     })

@@ -29,4 +29,8 @@ export default class OrderModel extends DataAccessModel {
   total_price() {
     return `R$ ${this.total_price_cents / 100}`
   }
+
+  code() {
+    return Buffer.from(this.id.toString()).toString('base64')
+  }
 }

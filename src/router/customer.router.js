@@ -303,10 +303,10 @@ export default class customerRouter {
   }
 
   static create_comment = async(req, res) =>  {
-    var today = (new Date()).toString();
+    var today = new Date();
     req.body.date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    req.body.customer_id = req.session.customer.id;
+    req.body.customer_id = parseInt(req.session.customer.id);
     await CommentModel.create(req.body)
-    this.login(req,res)
+    this.products(req, res);
   }
 }

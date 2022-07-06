@@ -129,3 +129,29 @@ main {
   font-size: 0.7rem;
   color: rgb(63, 62, 62);
 }
+
+.button {
+  width: 5% !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  background: #96e072 !important;
+  padding: 10px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  color: #1c1c1c !important;
+  cursor: pointer !important;
+  border-width: 0 !important;
+  border-radius:20px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  -webkit-transition-duration: 0.3s !important;
+  transition-duration: 0.3s !important;
+  -webkit-transition-property: box-shadow, transform !important;
+  transition-property: box-shadow, transform !important;
+}
+
+.button:hover, .button:focus, .button:active{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  -webkit-transform: scale(1.1) !important;
+  transform: scale(0.9) !important;
+}

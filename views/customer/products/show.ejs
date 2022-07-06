@@ -41,10 +41,10 @@
             <div class="comment-form">
                 <form action="/comment" method="post">
                   <input name="comment" id="comment" placeholder="Digite seu comentário" required></input>
-                  <!-- <div style="display: none;"> -->
+                  <div style="display: none;">
                     <input name="product_id" value="<%= product.id %>" required></input>
                     <input name="customer_id" value="<%= session.customer.id %>" required></input>
-                  <!-- </div> -->
+                  </div>
                   <input class="button" type="submit" value=">"></input>
                 </form>
             </div>

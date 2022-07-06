@@ -112,7 +112,7 @@ export default class customerRouter {
     let customers = await CustomerModel.list();
     
     comments = comments.filter(comment => comment.product_id !== undefined)
-    comments = comments.filter(comment => comment.product_id === JSON.parse(req.params.id))
+    comments = comments.filter(comment => comment.product_id === req.params.id)
     
 
     comments.forEach(comment => {

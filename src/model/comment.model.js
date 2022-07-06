@@ -19,7 +19,7 @@ export default class CommentModel extends DataAccessModel {
     this.product_id = params.product_id
     this.comment = params.comment
     this.date = params.date
-  }
+  } 
 
   async customer() {
     return await CustomerModel.find(this.customer_id)

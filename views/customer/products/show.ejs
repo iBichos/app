@@ -21,7 +21,7 @@
                     <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Ruim - 1 star"></label>
                     <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Péssimo - 0.5 estrelas"></label>
                 </fieldset-->
-                
+
                 <p id="product-price">R$ <%= product.price_cents / 100 %></p>
                 <p id="product-description"><%= product.description %></p>
                 <div class="buttons">
@@ -37,28 +37,28 @@
         <div style="justify-content: center; text-align: center;">
             <h2>Comentários</h2>
         </div>
-        <div class="comment-form">
-            <form action="/comment" method="post">
-              <input name="comment" id="comment" placeholder="Digite seu comentário" required></input>
-              <div style="display: none;">
-                <input name="product_id" required><%= product.id %></input>
-                <input name="customer_id" required><%= product.id %></input>
-              </div>
-              <button class="button-add" type="submit" value="Comentar"> > </button>
-            </form>
-        </div>
-
-        <!-- <div class="comment-view">
-            <div class="comment">Eu gostei desse produto!</div>
-            <div class="comment-author">Allan César</div>
-            <div class="comment-date">05/07/2022</div>
-        </div>
-    
+        <% if(session.isCustomer && session.isSignedIn) { %>
+            <div class="comment-form">
+                <form action="/comment" method="post">
+                  <input name="comment" id="comment" placeholder="Digite seu comentário" required></input>
+                  <!-- <div style="display: none;"> -->
+                    <input name="product_id" value="<%= product.id %>" required></input>
+                    <input name="customer_id" value="<%= session.customer.id %>" required></input>
+                  <!-- </div> -->
+                  <input class="button" type="submit" value=">"></input>
+                </form>
+            </div>
+        <% } else { %>
+            <div>Para comentar você precisa estar logado :(</div>
+        <% } %> 
+        
+        <% comments.forEach((comment) => { %>
         <div class="comment-view">
-            <div class="comment">Eu gostei desse produto!</div>
-            <div class="comment-author">Allan César</div>
-            <div class="comment-date">05/07/2022</div>
-        </div> -->
+            <div class="comment"><%= comment.comment %></div>
+            <div class="comment-author"><%= comment.author %></div>
+            <div class="comment-date"><%= comment.date %></div>
+        </div>
+        <% }) %>
     </div>
 </main>
 

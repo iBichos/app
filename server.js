@@ -52,7 +52,7 @@ app.get('/create_order', isSignedIn, isCustomer, CustomerRouter.createOrder)
 app.get('/wishlist', isSignedIn, isCustomer, CustomerRouter.wishlist)
 app.get('/add_to_wishlist/:product_id', isSignedIn, isCustomer, CustomerRouter.addToWishlist)
 app.delete('/customer_products/:customer_product_id', isSignedIn, isCustomer, CustomerRouter.removeFromWishlist)
-app.post('/comment', isSignedIn, isCustomer, CustomerRouter.doComment)
+app.post('/comment', isSignedIn, isCustomer, CustomerRouter.create_comment)
 
 // Merchant routes
 app.get('/merchant/products', isSignedIn, isMerchant, MerchantRouter.products)

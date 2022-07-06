@@ -108,8 +108,18 @@ export default class customerRouter {
   static productById = async (req, res) => {
     // find product with req.params.id
     let product = await ProductModel.find(req.params.id)
-    let comments = await CommentModel.findByField("product_id", req.params.id)
-    console.log(comments);
+    let comments = await CommentModel.list();
+    let customers = await CustomerModel.list();
+    
+    comments = comments.filter(comment => comment.product_id !== undefined)
+    comments = comments.filter(comment => comment.product_id === JSON.parse(req.params.id))
+    
+
+    comments.forEach(comment => {
+      let customer = customers.find(customer => customer.id === comment.customer_id)
+      comment.author = customer.username
+    })
+    
     res.render('customer/products/show', {
       layout: layout,
       product: product,
@@ -292,8 +302,9 @@ export default class customerRouter {
     res.redirect('/');
   }
 
-  static doComment = async(req, res) =>  {
-    req.body.date =  (new Date()).toString;
+  static create_comment = async(req, res) =>  {
+    var today = (new Date()).toString();
+    req.body.date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     req.body.customer_id = req.session.customer.id;
     await CommentModel.create(req.body)
     this.login(req,res)

@@ -6,7 +6,8 @@ const layout = 'layouts/merchant'
 
 export default class MerchantRouter {
   static profile = async (request, response) => {
-    let merchant = await MerchantModel.find(1)
+
+    let merchant = await MerchantModel.find(request.session.merchant.id)
 
     response.render('merchant/profile/edit', {
       layout,
@@ -17,8 +18,8 @@ export default class MerchantRouter {
   }
 
   static updateProfile = async (req, res) => {
-    let merchant = await MerchantModel.find(1)
-    MerchantModel.update(merchant.id, req.body)
+    let merchant = await MerchantModel.find(req.session.merchant.id)
+    await MerchantModel.update(merchant.id, req.body)
 
     this.profile(req, res)
   }

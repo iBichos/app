@@ -4,15 +4,13 @@
   <h2>Histórico de pedidos</h2>
   <table>
     <tr>
-      <th>Cliente</th>
-      <th>Criada em</th>
+      <th>Realizada em</th>
       <th>Valor</th>
       <th>Status</th>
       <th>Ações</th>
     </tr>
     <% orders.forEach((order) => { %>
       <tr>
-        <td><%= order.customer().username %></td>
         <td><%= order.created_at %></td>
         <td><%= order.total_price() %></td>
         <td><%= order.status %></td>

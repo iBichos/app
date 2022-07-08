@@ -10,92 +10,106 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id              Int               @id @default(autoincrement())
-  price_cents     Int
+model Products {
+  id              Int                @id @default(autoincrement())
+  name            String?
+  price_cents     Int?
   description     String?
   image_url       String?
-  merchant        Merchant          @relation(fields: [merchantId], references: [id])
-  merchantId      Int               @unique
-  categories      Categories        @relation(fields: [categoriesId], references: [id])
-  categoriesId    Int               @unique
-  animalTypes     AnimalTypes       @relation(fields: [animalTypesId], references: [id])
-  animalTypesId   Int               @unique
-  Order           Order?            @relation(fields: [orderId], references: [id])
-  orderId         Int?
-  Comment         Comment[]
-  CustomerProduct CustomerProduct[]
+  merchant        Merchants          @relation(fields: [merchant_id], references: [id])
+  merchant_id     Int
+  categories      Categories?        @relation(fields: [categories_id], references: [id])
+  categories_id   Int?
+  animalTypes     AnimalTypes?       @relation(fields: [animalTypes_id], references: [id])
+  animalTypes_id  Int?
+  OrderProducts   OrderProducts[]
+  Comment         Comments[]
+  CustomerProduct CustomerProducts[]
 }
 
 model Categories {
-  id      Int       @id @default(autoincrement())
+  id      Int        @id @default(autoincrement())
   name    String?
-  Product Product[]
+  Product Products[]
 }
 
 model AnimalTypes {
-  id      Int       @id @default(autoincrement())
+  id      Int        @id @default(autoincrement())
   name    String?
-  Product Product[]
+  Product Products[]
 }
 
-model Order {
-  id                Int       @id @default(autoincrement())
+model Orders {
+  id                Int             @id @default(autoincrement())
   total_price_cents Int
   status            String?
   created_at        String?
-  Product           Product[]
-  customer          Customer  @relation(fields: [customerId], references: [id])
-  customerId        Int       @unique
+  OrderProducts     OrderProducts[]
+  customer          Customers       @relation(fields: [customer_id], references: [id])
+  customer_id       Int
+  merchant          Merchants       @relation(fields: [merchant_id], references: [id])
+  merchant_id       Int
 }
 
-model Merchant {
-  id          Int       @id @default(autoincrement())
-  username    String?
-  email       String?
-  password    String?
-  cnpj        String?
-  phoneNumber String?
-  address     String?
-  companyName String?
-  ownerName   String?
-  Product     Product[]
+model OrderProducts {
+  id          Int        @id @default(autoincrement())
+  product     Products   @relation(fields: [product_id], references: [id])
+  product_id  Int
+  order       Orders     @relation(fields: [order_id], references: [id])
+  order_id    Int
+  Merchants   Merchants? @relation(fields: [merchantsId], references: [id])
+  merchantsId Int?
 }
 
-model Customer {
-  id              Int               @id @default(autoincrement())
-  Order           Order[]
-  username        String?           @unique
+model Merchants {
+  id            Int             @id @default(autoincrement())
+  username      String?         @unique
+  email         String?
+  password      String?
+  cnpj          String?
+  phoneNumber   String?
+  address       String?
+  companyName   String?
+  ownerName     String?
+  Product       Products[]
+  OrderProducts OrderProducts[]
+  Orders        Orders[]
+}
+
+model Customers {
+  id              Int                @id @default(autoincrement())
+  Order           Orders[]
+  username        String?            @unique
   email           String?
   password        String?
   cpf             String?
   phoneNumber     String?
   address         String?
-  Comment         Comment[]
-  CustomerProduct CustomerProduct[]
+  Comment         Comments[]
+  CustomerProduct CustomerProducts[]
 }
 
-model Comment {
-  id         Int      @id @default(autoincrement())
-  comment    String?
-  date       String?
-  customer   Customer @relation(fields: [customerId], references: [id])
-  customerId Int      @unique
-  product    Product  @relation(fields: [productId], references: [id])
-  productId  Int      @unique
+model Comments {
+  id          Int       @id @default(autoincrement())
+  comment     String?
+  date        String?
+  customer    Customers @relation(fields: [customer_id], references: [id])
+  customer_id Int
+  product     Products  @relation(fields: [product_id], references: [id])
+  product_id  Int
 }
 
-model CustomerProduct {
-  id         Int      @id @default(autoincrement())
-  customer   Customer @relation(fields: [customerId], references: [id])
-  customerId Int      @unique
-  product    Product  @relation(fields: [productId], references: [id])
-  productId  Int      @unique
+model CustomerProducts {
+  id          Int       @id @default(autoincrement())
+  customer    Customers @relation(fields: [customer_id], references: [id])
+  customer_id Int
+  product     Products  @relation(fields: [product_id], references: [id])
+  product_id  Int
 }
 
-model Admin {
+model Admins {
   id       Int     @id @default(autoincrement())
-  username String?
+  username String? @unique
   email    String?
   password String?
 }

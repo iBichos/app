@@ -8,7 +8,6 @@ export default class MerchantRouter {
   static profile = async (request, response) => {
 
     let merchant = await MerchantModel.find(request.session.merchant.id)
-
     response.render('merchant/profile/edit', {
       layout,
       session: request.session,
@@ -64,7 +63,11 @@ export default class MerchantRouter {
   }
 
   static createProduct = async (req, res) => {
-    await ProductModel.create(req.body)
+    let params = req.body
+    params['price_cents'] = parseInt(params['price_cents'])
+    params['merchant_id'] = req.session.merchant.id
+
+    await ProductModel.create(params)
     this.products(req,res)
   }
 

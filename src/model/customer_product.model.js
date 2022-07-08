@@ -2,7 +2,7 @@ import DataAccessModel from './data-access.model.js'
 import ProductModel from './product.model.js'
 
 export default class CustomerProductModel extends DataAccessModel {
-  static tableName = 'customer_products'
+  static tableName = 'customerProducts'
 
   static fields = [
     'product_id',

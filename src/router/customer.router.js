@@ -53,7 +53,7 @@ export default class customerRouter {
   static addToWishlist = async (request, response) => {
     let customer_product = await CustomerProductModel.create({
       customer_id: request.session.customer.id,
-      product_id: request.params.product_id
+      product_id: parseInt(request.params.product_id)
     })
     response.send(customer_product)
   }

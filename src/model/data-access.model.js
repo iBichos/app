@@ -27,7 +27,7 @@ export default class DataAccessModel {
   }
 
   static async delete(id) {
-    await prisma[this.tableName].delete({ where: { id: id }})
+    await prisma[this.tableName].delete({ where: { id: parseInt(id) }})
   }
 
   static async create(params) {

@@ -4,10 +4,10 @@
   <h1> Informações do produto </h1>
   <div class = "container-wrapper">
     <div class="wrapper">
-      <form action="/merchant/products/<%= product.id %>?_method=<%= method %>" method="POST">
+      <form action="/merchant/products/<%= product.id %>?_method=<%= method %>" method="POST" enctype="multipart/form-data">
         <div class="form-row">
           <div class="field">
-            <input type="text" required value="<%= product.image_url %>" name="image_url">
+            <input type="file" name="product_image"/>
             <label>URL da imagem</label>
           </div>
         </div>

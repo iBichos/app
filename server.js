@@ -4,12 +4,14 @@ import sessions from 'express-session';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import path from 'path';
+import multer from 'multer';
 
 import CustomerRouter from './src/router/customer.router.js';
 import MerchantRouter from './src/router/merchant.router.js';
 import AdminRouter from './src/router/admin.router.js'
 import { isAdmin, isCustomer, isMerchant, isSignedIn } from "./src/service/session-validation.service.js";
 import { priceCentsMask } from './src/service/product-validation.service.js';
+import uploadConfig from './src/config/upload.js';
 
 const app = express();
 const port = 3000
@@ -33,6 +35,9 @@ app.use(bodyParser.urlencoded())
 
 // parse application/json
 app.use(bodyParser.json())
+
+
+const upload = multer(uploadConfig);
 
 app.get('/', CustomerRouter.home)
 app.get('/products', CustomerRouter.products)
@@ -58,8 +63,8 @@ app.post('/comment', isSignedIn, isCustomer, CustomerRouter.create_comment)
 app.get('/merchant/products', isSignedIn, isMerchant, MerchantRouter.products)
 app.get('/merchant/products/:id/edit', isSignedIn, isMerchant, MerchantRouter.editProduct)
 app.get('/merchant/products/new', isSignedIn, isMerchant, MerchantRouter.newProduct)
-app.post('/merchant/products', isSignedIn, isMerchant, priceCentsMask, MerchantRouter.createProduct)
-app.put('/merchant/products/:id', isSignedIn, isMerchant, priceCentsMask, MerchantRouter.updateProduct)
+app.post('/merchant/products', isSignedIn, isMerchant, upload.single('product_image'), priceCentsMask, MerchantRouter.createProduct)
+app.put('/merchant/products/:id', isSignedIn, isMerchant, upload.single('product_image'), priceCentsMask, MerchantRouter.updateProduct)
 app.delete('/merchant/products/:id', isSignedIn, isMerchant, MerchantRouter.deleteProduct)
 app.get('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.profile)
 app.put('/merchant/profile', isSignedIn, isMerchant, MerchantRouter.updateProfile)

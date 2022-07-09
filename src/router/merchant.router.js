@@ -62,11 +62,14 @@ export default class MerchantRouter {
   }
 
   static updateProduct = async (req, res) => {
-
     let params = req.body
     params['price_cents'] = parseInt(req.body['price_cents'])
     params['merchant_id'] = req.session.merchant.id
-    params['image_url'] = '/' + req.file.filename
+
+    const s3 = new S3Storage();
+    await s3.saveFile(req.file.filename);
+
+    params['image_url'] = 'https://s3.amazonaws.com/bucketname/' + req.file.filename
 
     await ProductModel.update(parseInt(req.params.id), params)
     this.products(req,res)
@@ -76,7 +79,11 @@ export default class MerchantRouter {
     let params = req.body
     params['price_cents'] = parseInt(req.body['price_cents'])
     params['merchant_id'] = req.session.merchant.id
-    params['image_url'] = '/' + req.file.filename
+
+    const s3 = new S3Storage();
+    await s3.saveFile(req.file.filename);
+
+    params['image_url'] = 'https://s3.amazonaws.com/bucketname/' + req.file.filename
 
     await ProductModel.create(params)
     this.products(req,res)

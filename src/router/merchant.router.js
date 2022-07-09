@@ -2,6 +2,10 @@ import ProductModel from "../model/product.model.js";
 import OrderModel from "../model/order.model.js";
 import MerchantModel from "../model/merchant.model.js";
 
+import path from 'path';
+import uploadConfig from '../config/upload.js';
+
+
 const layout = 'layouts/merchant'
 
 export default class MerchantRouter {
@@ -58,14 +62,21 @@ export default class MerchantRouter {
   }
 
   static updateProduct = async (req, res) => {
-    await ProductModel.update(req.params.id, req.body)
+
+    let params = req.body
+    params['price_cents'] = parseInt(req.body['price_cents'])
+    params['merchant_id'] = req.session.merchant.id
+    params['image_url'] = '/' + req.file.filename
+
+    await ProductModel.update(parseInt(req.params.id), params)
     this.products(req,res)
   }
 
   static createProduct = async (req, res) => {
     let params = req.body
-    params['price_cents'] = parseInt(params['price_cents'])
+    params['price_cents'] = parseInt(req.body['price_cents'])
     params['merchant_id'] = req.session.merchant.id
+    params['image_url'] = '/' + req.file.filename
 
     await ProductModel.create(params)
     this.products(req,res)

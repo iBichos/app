@@ -23,6 +23,8 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.use(express.static('./assets'));
+app.use(express.static('./tmp'));
+
 
 //session middleware
 app.use(sessions({

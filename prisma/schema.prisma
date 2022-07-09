@@ -41,14 +41,12 @@ model AnimalTypes {
 
 model Orders {
   id                Int             @id @default(autoincrement())
-  total_price_cents Int
+  total_price_cents Int?
   status            String?
   created_at        String?
   OrderProducts     OrderProducts[]
   customer          Customers       @relation(fields: [customer_id], references: [id])
   customer_id       Int
-  merchant          Merchants       @relation(fields: [merchant_id], references: [id])
-  merchant_id       Int
 }
 
 model OrderProducts {
@@ -57,8 +55,6 @@ model OrderProducts {
   product_id  Int
   order       Orders     @relation(fields: [order_id], references: [id])
   order_id    Int
-  Merchants   Merchants? @relation(fields: [merchantsId], references: [id])
-  merchantsId Int?
 }
 
 model Merchants {
@@ -72,8 +68,6 @@ model Merchants {
   companyName   String?
   ownerName     String?
   Product       Products[]
-  OrderProducts OrderProducts[]
-  Orders        Orders[]
 }
 
 model Customers {

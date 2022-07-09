@@ -8,8 +8,7 @@ export default class OrderModel extends DataAccessModel {
     'customer_id',
     'total_price_cents',
     'status',
-    'created_at',
-    'products'
+    'created_at'
   ]
 
   constructor(params) {
@@ -19,7 +18,6 @@ export default class OrderModel extends DataAccessModel {
     this.total_price_cents = params.total_price_cents
     this.status = params.status
     this.created_at = params.created_at
-    this.products = params.products
   }
 
   async customer() {

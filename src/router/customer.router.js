@@ -6,6 +6,9 @@ import AnimalTypeModel from '../model/animal-type.model.js';
 import MerchantModel from '../model/merchant.model.js';
 import CustomerProductModel from '../model/customer_product.model.js';
 import CommentModel from '../model/comment.model.js';
+import OrderProductModel from '../model/order_product.model.js';
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
 const layout = 'layouts/customer'
 
@@ -194,51 +197,59 @@ export default class customerRouter {
   }
 
   static orders = async (req, res) => {
-    let orders = await OrderModel.list()
-  
+    //criar função para isso dentro do model Order
+    let orders = await prisma.orders.findMany({
+      where: { customer_id: req.session.customer.id },
+      include: { OrderProducts: { include: { product: true } } },
+    })
+
+    const result = orders.map((order) => {
+      return { ...order, products: order.OrderProducts.map((orderProducts) => orderProducts.product) }
+    })
+
     res.render('customer/orders/index', {
       layout: layout,
       session: req.session,
       shopping_cart: req.session.cart,
       url: req.url,
-      orders: orders
+      orders: result
     })
   }
 
   static createOrder = async (req, res) => {
 
-    let total_price_cents = req.session.cart.reduce(
-      (sum, item) => sum + item.product.price_cents * item.quantity,
-      0
-    )
+    const order = await OrderModel.create({customer_id: req.session.customer.id})
 
-    let products = []
-
+    let order_products = []
     req.session.cart.forEach((item)=> {
-      products.push({
-        id: item.product.id,
-        quantity: item.quantity,
-        name: item.product.name,
-        price_cents: item.product.price_cents,
-        image_url: item.product.image_url
+      order_products.push({
+        product_id: item.product.id,
+        order_id: order.id
       })
     })
 
-    let today = Date.now()
-
-    let order_params = {
-      "created_at": `02/12/2022`,
-      "total_price_cents": total_price_cents,
-      "status": "Pedido pendente",
-      "customer_id": req.session.customer.id,
-      "products": products
+    for(const order_product_params of order_products ){
+      await OrderProductModel.create(order_product_params)
     }
 
-    await OrderModel.create(order_params)
-    
+    let total_price_cents = req.session.cart.reduce((sum, item) => sum + item.product.price_cents * item.quantity, 0)
+    let order_params = {
+      "created_at": Date.now().toString(),
+      "total_price_cents": total_price_cents,
+      "status": "Pedido pendente"
+    }
+
+    await OrderModel.update(order.id, order_params)
+
     req.session.cart = []
 
-    this.showOrder(req, res)
+    res.render('customer/orders/show', {
+      layout: layout,
+      session: req.session,
+      order: order,
+      shopping_cart: req.session.cart,
+      url: req.url,
+    })
   }
 
   static showOrder = async (req, res) => {

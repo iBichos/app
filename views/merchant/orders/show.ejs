@@ -10,12 +10,12 @@
         </div>
         <div>
           <small>TOTAL</small>
-          <p><%= order.total_price() %></p>
+          <p><%= order.total_price_cents %></p>
         </div>
       </div>
       <div class="right">
         <small>PEDIDO Nº <%= order.id %></small>
-        <p><%= order.customer().address %></p>
+        <p><%= customer.address %></p>
       </div>
     </div>
     <div class="body">

@@ -6,7 +6,9 @@ import path from 'path';
 import uploadConfig from '../config/upload.js';
 
 import S3Storage from '../utils/s3storage.js'
-
+import { PrismaClient } from '@prisma/client'
+import CustomerModel from "../model/customer.model.js";
+const prisma = new PrismaClient()
 
 const layout = 'layouts/merchant'
 
@@ -145,18 +147,27 @@ export default class MerchantRouter {
   }
 
   static showOrder = async (req, res) => {
-    let order = await OrderModel.find(req.params.id)
+    // let order = await OrderModel.find(req.params.id)
 
+      //criar função para isso dentro do model Order
+    let order = await prisma.orders.findUnique({
+      where: { id: parseInt(req.params.id) },
+      include: { OrderProducts: { include: { product: true } } },
+    })
+
+    const result = { ...order, products: order.OrderProducts.map((orderProducts) => orderProducts.product) }
+    const customer = await CustomerModel.find(result.customer_id)
     res.render('merchant/orders/show', {
       layout,
       session: req.session,
       url: req.url,
-      order: order
+      order: result,
+      customer: customer
     })
   }
 
   static updateOrder = (req, res) => {
-    OrderModel.update(req.params.id, req.body)
+    OrderModel.update(parseInt(req.params.id), req.body)
     this.showOrder(req,res)
   }
 }

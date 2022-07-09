@@ -24,7 +24,7 @@ export default class S3Storage {
     const fileContent = await fs.promises.readFile(originalPath)
 
     this.client.putObject({
-      Bucket: 'bucket-name',
+      Bucket: 'ibichos-images',
       Key: filename,
       ACL: 'public-read',
       Body: fileContent,

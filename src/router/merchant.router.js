@@ -5,6 +5,8 @@ import MerchantModel from "../model/merchant.model.js";
 import path from 'path';
 import uploadConfig from '../config/upload.js';
 
+import S3Storage from '../utils/s3storage.js'
+
 
 const layout = 'layouts/merchant'
 
@@ -62,28 +64,26 @@ export default class MerchantRouter {
   }
 
   static updateProduct = async (req, res) => {
-    let params = req.body
-    params['price_cents'] = parseInt(req.body['price_cents'])
-    params['merchant_id'] = req.session.merchant.id
-
     const s3 = new S3Storage();
     await s3.saveFile(req.file.filename);
 
-    params['image_url'] = 'https://s3.amazonaws.com/bucketname/' + req.file.filename
+    let params = req.body
+    params['image_url'] = 'https://s3.amazonaws.com/ibichos-images/' + req.file.filename
+    params['price_cents'] = parseInt(req.body['price_cents'])
+    params['merchant_id'] = req.session.merchant.id
 
     await ProductModel.update(parseInt(req.params.id), params)
     this.products(req,res)
   }
 
   static createProduct = async (req, res) => {
-    let params = req.body
-    params['price_cents'] = parseInt(req.body['price_cents'])
-    params['merchant_id'] = req.session.merchant.id
-
     const s3 = new S3Storage();
     await s3.saveFile(req.file.filename);
-
-    params['image_url'] = 'https://s3.amazonaws.com/bucketname/' + req.file.filename
+    
+    let params = req.body
+    params['image_url'] = 'https://s3.amazonaws.com/ibichos-images/' + req.file.filename
+    params['price_cents'] = parseInt(req.body['price_cents'])
+    params['merchant_id'] = req.session.merchant.id
 
     await ProductModel.create(params)
     this.products(req,res)

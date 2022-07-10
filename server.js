@@ -14,7 +14,7 @@ import { priceCentsMask } from './src/service/product-validation.service.js';
 import uploadConfig from './src/config/upload.js';
 
 const app = express();
-const port = 3000
+const port = 80
 const __dirname = path.resolve();
 
 app.set('view engine', 'ejs')

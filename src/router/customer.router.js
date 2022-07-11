@@ -110,19 +110,13 @@ export default class customerRouter {
   
   static productById = async (req, res) => {
     // find product with req.params.id
-    let product = await ProductModel.find(req.params.id)
-    let comments = await CommentModel.list();
-    let customers = await CustomerModel.list();
-    
-    comments = comments.filter(comment => comment.product_id !== undefined)
-    comments = comments.filter(comment => comment.product_id === req.params.id)
-    
+    let product = await ProductModel.find(parseInt(req.params.id))
 
-    comments.forEach(comment => {
-      let customer = customers.find(customer => customer.id === comment.customer_id)
-      comment.author = customer.username
+    let comments = await prisma.comments.findMany({
+      where: { product_id: parseInt(req.params.id)},
+      include: { customer: true }
     })
-    
+
     res.render('customer/products/show', {
       layout: layout,
       product: product,
@@ -314,10 +308,15 @@ export default class customerRouter {
   }
 
   static create_comment = async(req, res) =>  {
-    var today = new Date();
-    req.body.date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    req.body.customer_id = parseInt(req.session.customer.id);
-    await CommentModel.create(req.body)
+    
+    let params = req.body
+
+    let today = new Date();
+    params.date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    params.customer_id = parseInt(req.session.customer.id);
+    params.product_id = parseInt(params.product_id)
+
+    await CommentModel.create(params)
     this.products(req, res);
   }
 }

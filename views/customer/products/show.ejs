@@ -55,7 +55,7 @@
         <% comments.forEach((comment) => { %>
         <div class="comment-view">
             <div class="comment"><%= comment.comment %></div>
-            <div class="comment-author"><%= comment.author %></div>
+            <div class="comment-author"><%= comment.customer.username %></div>
             <div class="comment-date"><%= comment.date %></div>
         </div>
         <% }) %>
